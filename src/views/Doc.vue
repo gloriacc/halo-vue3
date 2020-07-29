@@ -18,7 +18,9 @@
         </li>
       </ol>
     </aside>
-    <main>main</main>
+    <main>
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 <script lang="ts">
