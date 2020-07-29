@@ -10,9 +10,8 @@
 </template>
 <script lang="ts">
   import Nav from '../components/Nav.vue';
-
   export default {
-    components: {Nav}
+    components: {Nav},
   };
 </script>
 <style lang="scss" scoped>

@@ -1,7 +1,7 @@
 <template>
   <Nav></Nav>
   <div class="content">
-    <aside>
+    <aside v-if="asideVisible">
       <h2>组件列表</h2>
       <ol>
         <li>
@@ -23,9 +23,14 @@
 </template>
 <script lang="ts">
   import Nav from '../components/Nav.vue';
+  import {inject, Ref} from 'vue';
 
   export default {
-    components: {Nav}
+    components: {Nav},
+    setup () {
+      const asideVisible = inject<Ref<Boolean>>('asideVisible')
+      return {asideVisible}
+    }
   };
 </script>
 <style lang="scss" scoped>
