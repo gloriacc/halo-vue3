@@ -1,18 +1,20 @@
 <template>
   <div class="nav">
-    <div class="logo">LOGO</div>
+    <div class="logo"><router-link to="/">Halo</router-link></div>
     <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
+      <li><router-link to="/doc">组件库</router-link></li>
+      <li><a href="https://github.com">GitHub<halo-icon class="target-icon" name="target"></halo-icon></a></li>
     </ul>
-    <span class="toggleAside" @click="toggleAside"></span>
+    <halo-icon class="toggleAside" @click="toggleAside" name="fold"></halo-icon>
   </div>
 </template>
 <script lang="ts">
   import {inject, Ref} from 'vue';
+  import HaloIcon from '../singleComponents/icon.vue';
 
   export default {
     name: 'Nav',
+    components: {HaloIcon},
     setup () {
       const asideVisible = inject<Ref<Boolean>>('asideVisible')
       const toggleAside = () => {
@@ -35,27 +37,43 @@
     z-index: 10;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px solid #eeeeee;
+    background: white;
     > .logo {
       max-width: 6em;
       margin-right: auto;
+      font-size: 28px;
+      > a:hover {
+        border-bottom: none;
+      }
     }
     > .menu {
       display: flex;
       white-space: nowrap;
       flex-wrap: nowrap;
+      align-items: center;
       > li {
         margin: 0 1em;
+        > a {
+          > .target-icon {
+            vertical-align: top;
+            margin-left: .1em;
+          }
+          &:hover {
+            border-bottom: none;
+          }
+        }
       }
     }
     > .toggleAside {
       display: none;
-      width: 24px;
-      height: 24px;
-      background: red;
+      width: 1.25em;
+      height: 1.25em;
       position: absolute;
       left: 16px;
       top: 50%;
       transform: translateY(-50%);
+      cursor: pointer;
     }
     @media (max-width:500px) {
       > .menu {
