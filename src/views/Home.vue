@@ -16,22 +16,35 @@
 </script>
 <style lang="scss" scoped>
 .banner {
-  padding: 100px 0;
+  padding: 8em 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  > h1 {
+    font-size: 5em;
+    text-align: center;
+  }
   > .actions{
     padding: 8px 0;
+    text-align: center;
     a {
-      margin:0 8px;
+      margin:8px;
       background: #fff;
       display: inline-block;
       $h: 28px;
-      height: $h;
+      $c: #AA96DA;
       line-height: $h;
-      border-radius: $h/2;
-      padding: 0 8px;
+      border-radius: 18px;
+      padding: 8px 28px;
+      border: 1px solid $c;
+      &:first-child {
+        color: $c;
+      }
+      &:last-child {
+        color: white;
+        background-color: $c;
+      }
     }
   }
 }
