@@ -2,15 +2,16 @@
   <div class="nav">
     <div class="logo"><router-link to="/">Halo</router-link></div>
     <ul class="menu">
-      <li><router-link to="/doc">组件库</router-link></li>
+      <li><router-link :class="link.path.indexOf('/doc') !== -1 ? 'link-active' : ''" to="/doc">组件库</router-link></li>
       <li><a href="https://github.com">GitHub<halo-icon class="target-icon" name="target"></halo-icon></a></li>
     </ul>
     <halo-icon class="toggleAside" @click="toggleAside" name="fold"></halo-icon>
   </div>
 </template>
 <script lang="ts">
-  import {inject, Ref} from 'vue';
-  import HaloIcon from '../lib/icon.vue';
+  import {inject, Ref} from 'vue'
+  import HaloIcon from '../lib/icon.vue'
+  import {router} from '../router'
 
   export default {
     name: 'Nav',
@@ -23,7 +24,12 @@
         }
       }
       return {toggleAside}
-    }
+    },
+    data () {
+      return {
+        link: router.currentRoute
+      }
+    },
   }
 </script>
 <style lang="scss" scoped>
@@ -61,6 +67,9 @@
           }
           &:hover {
             border-bottom: none;
+          }
+          &.link-active {
+            color: #AA96DA;
           }
         }
       }

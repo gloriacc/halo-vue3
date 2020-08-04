@@ -3,28 +3,12 @@
     <Nav class="nav"></Nav>
     <div class="content">
       <aside v-if="asideVisible">
-<!--        <h2>组件列表</h2>-->
         <ol>
           <li>
-            <router-link to="/doc">安装</router-link>
+            <router-link :class="link.path === '/doc' ? 'link-active' : ''" to="/doc">安装</router-link>
           </li>
-          <li>
-            <router-link to="/doc/switch">Switch 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/button">Button 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/dialog">Dialog 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/tabs">Tabs 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/input">Input 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/layout">Layout 组件</router-link>
+          <li v-for="route in links">
+            <router-link :class="link.path === route.path ? 'link-active' : ''" :to="route.path">{{ route.meta.title }}</router-link>
           </li>
         </ol>
       </aside>
@@ -35,16 +19,22 @@
   </div>
 </template>
 <script lang="ts">
-  import Nav from '../components/Nav.vue';
-  import {inject, Ref} from 'vue';
+  import Nav from '../components/Nav.vue'
+  import {inject, Ref} from 'vue'
+  import { router } from '../router'
 
   export default {
     components: {Nav},
     setup () {
       const asideVisible = inject<Ref<Boolean>>('asideVisible')
-      // console.log(asideVisible);
       return {asideVisible}
-    }
+    },
+    data () {
+      return {
+        links: router.getRoutes().filter(route => route.meta.title) || [],
+        link: router.currentRoute
+      }
+    },
   };
 </script>
 <style lang="scss" scoped>
@@ -87,6 +77,9 @@
             &:hover {
               color: #AA96DA;
               border-bottom: none;
+            }
+            &.link-active {
+              color: #AA96DA;
             }
           }
         }
