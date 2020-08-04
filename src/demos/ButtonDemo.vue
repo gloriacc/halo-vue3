@@ -12,8 +12,8 @@
   </div>
 </template>
 <script lang="ts">
-  import Button from '../singleComponents/button.vue'
-  import ButtonGroup from '../singleComponents/button-group.vue'
+  import Button from '../lib/button.vue'
+  import ButtonGroup from '../lib/button-group.vue'
   export default {
     components: {
       'h-button': Button,

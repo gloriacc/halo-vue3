@@ -4,7 +4,7 @@
   </div>
 </template>
 <script lang="ts">
-  import Icon from '../singleComponents/icon.vue'
+  import Icon from '../lib/icon.vue'
   export default {
     components: {
       'h-icon': Icon,

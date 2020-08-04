@@ -13,8 +13,8 @@
   </h-row>
 </template>
 <script lang="ts">
-  import Row from '../singleComponents/row.vue'
-  import Col from '../singleComponents/col.vue'
+  import Row from '../lib/row.vue'
+  import Col from '../lib/col.vue'
   export default {
     components: {
       'h-row': Row,

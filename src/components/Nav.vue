@@ -10,7 +10,7 @@
 </template>
 <script lang="ts">
   import {inject, Ref} from 'vue';
-  import HaloIcon from '../singleComponents/icon.vue';
+  import HaloIcon from '../lib/icon.vue';
 
   export default {
     name: 'Nav',

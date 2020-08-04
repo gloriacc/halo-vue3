@@ -13,7 +13,7 @@
   </div>
 </template>
 <script lang="ts">
-  import Input from '../singleComponents/input.vue'
+  import Input from '../lib/input.vue'
   export default {
     components: {
       'h-input': Input
