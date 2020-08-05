@@ -11,5 +11,6 @@
 <style lang="scss" scoped>
   h1 {
     margin: .6em 0;
+    font-size: 2em;
   }
 </style>
