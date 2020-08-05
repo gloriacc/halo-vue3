@@ -15,6 +15,17 @@
         <h-button type="text">Text</h-button>
       </Example>
     </section>
+    <section>
+      <H2>圆角按钮</H2>
+      <P>圆角的操作按钮。</P>
+      <Example :code="circleExampleCode">
+        <h-button shape="circle">Default</h-button>
+        <h-button type="primary" shape="circle">Primary</h-button>
+        <h-button type="success" shape="circle">Success</h-button>
+        <h-button type="warning" shape="circle">Warning</h-button>
+        <h-button type="danger" shape="circle">Danger</h-button>
+      </Example>
+    </section>
   </article>
 </template>
 <script lang="ts">
@@ -41,6 +52,13 @@
           '<h-button type="danger">Danger</h-button>\n' +
           '<h-button type="link">Link</h-button>\n' +
           '<h-button type="text">Text</h-button>\n' +
+          '```',
+        circleExampleCode: '```html\n' +
+          '<h-button shape="circle">Default</h-button>\n' +
+          '<h-button type="primary" shape="circle">Primary</h-button>\n' +
+          '<h-button type="success" shape="circle">Success</h-button>\n' +
+          '<h-button type="warning" shape="circle">Warning</h-button>\n' +
+          '<h-button type="danger" shape="circle">Danger</h-button>\n' +
           '```',
       }
     },

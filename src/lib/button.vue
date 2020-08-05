@@ -1,5 +1,5 @@
 <template>
-  <button class="halo-button" :class="{[`halo-button-icon-${iconPosition}`]: true, [`halo-button-${type}`]: true}" @click="$emit('click')">
+  <button class="halo-button" :class="{[`halo-button-icon-${iconPosition}`]: true, [`halo-button-${type}`]: true, ['halo-button-circle']: shape === 'circle'}" @click="$emit('click')">
     <h-icon class="icon" v-if="icon && !loading" :name="icon"></h-icon>
     <h-icon class="icon loading" v-if="loading" name="loading"></h-icon>
     <div class="content">
@@ -19,6 +19,12 @@
         default: 'default',
         validate (value: string) {
           return ['default', 'primary', 'success', 'warning', 'danger', 'link', 'text'].includes(value);
+        }
+      },
+      shape: {
+        type: String,
+        validate (value: string) {
+          return value === 'circle';
         }
       },
       icon: {},
@@ -95,6 +101,9 @@
       &:active {
         @include halo-button-default-color($default-color-active);
       }
+      &:focus {
+        @include halo-button-default-color($default-color-hover);
+      }
     }
     &-link {
       background: none;
@@ -105,6 +114,9 @@
       }
       &:active {
         color: $link-color-active;
+      }
+      &:focus {
+        color: $link-color-hover;
       }
     }
     &-text {
@@ -122,7 +134,13 @@
         &:active {
           @include halo-button-type-color(nth($background-colors-active, $i));
         }
+        &:focus {
+          @include halo-button-type-color(nth($background-colors-hover, $i));
+        }
       }
+    }
+    &-circle {
+      border-radius: 32px;
     }
   }
 </style>
