@@ -1,5 +1,5 @@
 <template>
-  <button class="halo-button" :class="{[`halo-button-icon-${iconPosition}`]: true, [`halo-button-${type}`]: true, ['halo-button-circle']: shape === 'circle'}" @click="$emit('click')">
+  <button class="halo-button" :class="{[`halo-button-icon-${iconPosition}`]: true, [`halo-button-${type}`]: true, ['halo-button-circle']: circle, ['halo-button-ghost']: ghost}" @click="$emit('click')">
     <h-icon class="icon" v-if="icon && !loading" :name="icon"></h-icon>
     <h-icon class="icon loading" v-if="loading" name="loading"></h-icon>
     <div class="content">
@@ -21,11 +21,13 @@
           return ['default', 'primary', 'success', 'warning', 'danger', 'link', 'text'].includes(value);
         }
       },
-      shape: {
-        type: String,
-        validate (value: string) {
-          return value === 'circle';
-        }
+      circle: {
+        type: Boolean,
+        default: false
+      },
+      ghost: {
+        type: Boolean,
+        default: false
       },
       icon: {},
       loading: {
@@ -98,11 +100,11 @@
       &:hover {
         @include halo-button-default-color($default-color-hover);
       }
-      &:active {
-        @include halo-button-default-color($default-color-active);
-      }
       &:focus {
         @include halo-button-default-color($default-color-hover);
+      }
+      &:active {
+        @include halo-button-default-color($default-color-active);
       }
     }
     &-link {
@@ -112,11 +114,11 @@
       &:hover {
         color: $link-color-hover;
       }
-      &:active {
-        color: $link-color-active;
-      }
       &:focus {
         color: $link-color-hover;
+      }
+      &:active {
+        color: $link-color-active;
       }
     }
     &-text {
@@ -131,16 +133,40 @@
         &:hover {
           @include halo-button-type-color(nth($background-colors-hover, $i));
         }
+        &:focus {
+          @include halo-button-type-color(nth($background-colors-hover, $i));
+        }
         &:active {
           @include halo-button-type-color(nth($background-colors-active, $i));
         }
+      }
+      &-#{nth($button-types, $i)}.halo-button-ghost {
+        color: nth($background-colors, $i);
+        &:hover {
+          color: nth($background-colors-hover, $i);
+        }
         &:focus {
-          @include halo-button-type-color(nth($background-colors-hover, $i));
+          color: nth($background-colors-hover, $i);
+        }
+        &:active {
+          color: nth($background-colors-active, $i);
         }
       }
     }
     &-circle {
       border-radius: 32px;
+    }
+    &-ghost {
+      background: none;
+      &:hover {
+        background: none;
+      }
+      &:focus {
+        background: none;
+      }
+      &:active {
+        background: none;
+      }
     }
   }
 </style>

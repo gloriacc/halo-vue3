@@ -19,11 +19,22 @@
       <H2>圆角按钮</H2>
       <P>圆角的操作按钮。</P>
       <Example :code="circleExampleCode">
-        <h-button shape="circle">Default</h-button>
-        <h-button type="primary" shape="circle">Primary</h-button>
-        <h-button type="success" shape="circle">Success</h-button>
-        <h-button type="warning" shape="circle">Warning</h-button>
-        <h-button type="danger" shape="circle">Danger</h-button>
+        <h-button circle>Default</h-button>
+        <h-button type="primary" circle>Primary</h-button>
+        <h-button type="success" circle>Success</h-button>
+        <h-button type="warning" circle>Warning</h-button>
+        <h-button type="danger" circle>Danger</h-button>
+      </Example>
+    </section>
+    <section>
+      <H2>幽灵按钮</H2>
+      <P>背景透明的操作按钮。</P>
+      <Example :code="ghostExampleCode">
+        <h-button ghost>Default</h-button>
+        <h-button type="primary" ghost>Primary</h-button>
+        <h-button type="success" ghost>Success</h-button>
+        <h-button type="warning" ghost>Warning</h-button>
+        <h-button type="danger" circle ghost>Danger</h-button>
       </Example>
     </section>
   </article>
@@ -54,11 +65,18 @@
           '<h-button type="text">Text</h-button>\n' +
           '```',
         circleExampleCode: '```html\n' +
-          '<h-button shape="circle">Default</h-button>\n' +
-          '<h-button type="primary" shape="circle">Primary</h-button>\n' +
-          '<h-button type="success" shape="circle">Success</h-button>\n' +
-          '<h-button type="warning" shape="circle">Warning</h-button>\n' +
-          '<h-button type="danger" shape="circle">Danger</h-button>\n' +
+          '<h-button circle>Default</h-button>\n' +
+          '<h-button type="primary" circle>Primary</h-button>\n' +
+          '<h-button type="success" circle>Success</h-button>\n' +
+          '<h-button type="warning" circle>Warning</h-button>\n' +
+          '<h-button type="danger" circle>Danger</h-button>\n' +
+          '```',
+        ghostExampleCode: '```html\n' +
+          '<h-button ghost>Default</h-button>\n' +
+          '<h-button type="primary" ghost>Primary</h-button>\n' +
+          '<h-button type="success" ghost>Success</h-button>\n' +
+          '<h-button type="warning" ghost>Warning</h-button>\n' +
+          '<h-button type="danger" circle ghost>Danger</h-button>\n' +
           '```',
       }
     },
