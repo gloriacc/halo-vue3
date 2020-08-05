@@ -3,6 +3,8 @@ import  store from './store'
 import {router} from './router'
 import App from './App.vue'
 import './index.scss'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/tomorrow.css'
 
 import Button from './lib/button.vue'
 import Icon from './lib/icon.vue'
@@ -22,6 +24,13 @@ app.component('h-button-group', ButtonGroup)
 app.component('h-input', Input)
 app.component('h-row', Row)
 app.component('h-col', Col)
+
+app.directive('highlight',(el) => {
+  let blocks = el.querySelectorAll('pre code');
+  blocks.forEach((block: HTMLElement)=>{
+    hljs.highlightBlock(block)
+  })
+})
 
 app.mount('#app')
 

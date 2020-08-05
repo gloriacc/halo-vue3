@@ -18,7 +18,7 @@ export const router = createRouter({
     {path: '/doc', component: Doc, children: [
         {path: '', component: DocDemo},
         {path: 'switch', component: SwitchDemo, meta: { title: 'Switch' }},
-        {path: 'button', component: ButtonDemo, meta: { title: 'Button' }},
+        {path: 'button', component: ButtonDemo, meta: { title: 'Button 按钮' }},
         {path: 'dialog', component: DialogDemo, meta: { title: 'Dialog' }},
         {path: 'tabs', component: TabsDemo, meta: { title: 'Tabs' }},
         {path: 'input', component: InputDemo, meta: { title: 'Input' }},

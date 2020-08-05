@@ -73,6 +73,7 @@
       > ol {
         > li {
           padding: 8px 0;
+          font-size: 14px;
           > a {
             &:hover {
               color: #AA96DA;

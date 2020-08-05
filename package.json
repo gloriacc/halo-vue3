@@ -6,11 +6,15 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@types/highlight.js": "^9.12.4",
+    "highlight.js": "^10.1.2",
+    "marked": "^1.1.1",
     "vue": "^3.0.0-rc.1",
     "vue-router": "4.0.0-beta.3",
     "vuex": "4.0.0-beta.4"
   },
   "devDependencies": {
+    "@types/marked": "^1.1.0",
     "@vue/compiler-sfc": "^3.0.0-rc.1",
     "sass": "^1.26.10",
     "vite": "^1.0.0-rc.1"
