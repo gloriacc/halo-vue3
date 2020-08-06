@@ -39,6 +39,7 @@
     <section>
       <H2>图标按钮</H2>
       <P>带图标的操作按钮。</P>
+      <P>当 <Span>shape</Span> 属性为 <Span>circle</Span> 时，只显示由 <Span>icon</Span> 属性设置的图标，忽略内容。</P>
       <Example :code="iconExampleCode">
         <h-button shape="circle" icon="setting"></h-button>
         <h-button shape="round" icon="setting"></h-button>
@@ -51,7 +52,7 @@
       </Example>
     </section>
     <section>
-      <H2>按钮禁用</H2>
+      <H2>禁用</H2>
       <P>按钮为禁用状态。</P>
       <Example :code="disabledExampleCode">
         <h-button shape="circle" icon="setting"></h-button>
@@ -68,6 +69,28 @@
         <h-button type="text" disabled>Text</h-button>
       </Example>
     </section>
+    <section>
+      <H2>加载中</H2>
+      <P>按钮为加载中状态。</P>
+      <Example :code="loadingExampleCode">
+        <h-button shape="circle" loading></h-button>
+        <h-button type="primary" loading>Loading</h-button>
+        <h-button type="link" loading>Loading</h-button>
+        <h-button type="text" icon-position="right" loading>Loading</h-button>
+        <h-button shape="round" loading ghost disabled>Loading</h-button>
+        <h-button type="primary" :loading="loading" @click="loading = true">{{!loading ? 'Click me' : 'Loading'}}</h-button>
+      </Example>
+    </section>
+    <section>
+      <H2>组合按钮</H2>
+      <P>包含多个按钮</P>
+      <Example :code="loadingExampleCode">
+        <h-button-group class="group">
+          <h-button>previous</h-button>
+          <h-button>next</h-button>
+        </h-button-group>
+      </Example>
+    </section>
   </article>
 </template>
 <script lang="ts">
@@ -75,17 +98,19 @@
   import H1 from '../components/H1.vue'
   import H2 from '../components/H2.vue'
   import P from '../components/P.vue'
+  import Span from '../components/Span.vue'
   import Example from '../components/Example.vue'
   import Button from '../lib/button.vue'
   import ButtonGroup from '../lib/button-group.vue'
   const ButtonDemo = defineComponent({
     components: {
-      H1, H2, P, Example,
+      H1, H2, P, Span, Example,
       'h-button': Button,
       'h-button-group': ButtonGroup
     },
     data () {
       return {
+        loading: false,
         regularExampleCode: '```html\n' +
           '<h-button>Default</h-button>\n' +
           '<h-button type="primary">Primary</h-button>\n' +
@@ -132,6 +157,14 @@
           '<h-button type="text">Text</h-button>\n' +
           '<h-button type="text" disabled>Text</h-button>\n' +
           '```',
+        loadingExampleCode: '```html\n' +
+          '<h-button shape="circle" loading></h-button>\n' +
+          '<h-button type="primary" loading>Loading</h-button>\n' +
+          '<h-button type="link" loading>Loading</h-button>\n' +
+          '<h-button type="text" icon-position="right" loading>Loading</h-button>\n' +
+          '<h-button shape="round" loading ghost disabled>Loading</h-button>\n' +
+          '<h-button type="primary" :loading="loading" @click="loading = true">{{!loading ? \'Click me\' : \'Loading\'}}</h-button>\n' +
+          '```',
       }
     },
   })
@@ -140,5 +173,11 @@
 <style lang="scss" scoped>
   button {
     margin: .2em .5em;
+  }
+  .group {
+    margin: .2em .5em;
+    button {
+      margin: 0;
+    }
   }
 </style>

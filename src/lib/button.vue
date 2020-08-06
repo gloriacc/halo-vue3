@@ -6,8 +6,8 @@
             [`halo-button-${shape}`]: !!shape,
             ['halo-button-ghost']: ghost,
             ['halo-button-disabled']: disabled,
-          }"
-          @click="$emit('click')">
+            ['halo-button-loading']: loading,
+          }">
     <h-icon class="icon" v-if="icon && !loading" :name="icon"></h-icon>
     <h-icon class="icon loading" v-if="loading" name="loading"></h-icon>
     <div class="content" v-if="(!icon && !loading) || (shape !== 'circle')">
@@ -121,6 +121,11 @@
         @include halo-button-default-color($default-color-active);
       }
     }
+    &-default.halo-button-loading {
+      &, &:hover, &:focus, &:active {
+        @include halo-button-default-color($default-color-hover);
+      }
+    }
     &-link {
       background: none;
       border: none;
@@ -133,6 +138,11 @@
       }
       &:active {
         color: $link-color-active;
+      }
+    }
+    &-link.halo-button-loading {
+      &, &:hover, &:focus, &:active {
+        color: $link-color-hover;
       }
     }
     &-text {
@@ -166,6 +176,12 @@
           color: nth($background-colors-active, $i);
         }
       }
+
+      &-#{nth($button-types, $i)}.halo-button-loading {
+        &, &:hover, &:focus, &:active {
+          @include halo-button-type-color(nth($background-colors-hover, $i));
+        }
+      }
     }
     &-round {
       border-radius: 32px;
@@ -191,8 +207,8 @@
     &-disabled {
       &, &:hover, &:focus, &:active {
         cursor: not-allowed;
-        border-color: $default-border-color;
-        background-color: $default-background-color-disabled;
+        border-color: $default-border-color !important;
+        background-color: $default-background-color-disabled !important;
         color: $default-color-disabled !important;
       }
     }

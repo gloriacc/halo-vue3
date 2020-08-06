@@ -1,20 +1,19 @@
 <template>
-  <p>
+  <span>
     <slot></slot>
-  </p>
+  </span>
 </template>
 <script lang="ts">
   import { defineComponent } from 'vue'
-  const P = defineComponent({})
-  export default P
+  const Span = defineComponent({})
+  export default Span
 </script>
 <style lang="scss" scoped>
-  p {
-    margin: 1em 0;
-    color: #631071;
-  }
   span {
     display: inline-block;
     background-color: #eceff1;
+    padding: .2em .4em;
+    border-radius: .2em;
+    font-size: 14px;
   }
 </style>
