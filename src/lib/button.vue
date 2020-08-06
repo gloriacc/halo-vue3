@@ -1,8 +1,8 @@
 <template>
-  <button class="halo-button" :class="{[`halo-button-icon-${iconPosition}`]: true, [`halo-button-${type}`]: true, ['halo-button-circle']: circle, ['halo-button-ghost']: ghost}" @click="$emit('click')">
+  <button class="halo-button" :class="{[`halo-button-icon-${iconPosition}`]: true, [`halo-button-${type}`]: true, [`halo-button-${shape}`]: !!shape, ['halo-button-ghost']: ghost}" @click="$emit('click')">
     <h-icon class="icon" v-if="icon && !loading" :name="icon"></h-icon>
     <h-icon class="icon loading" v-if="loading" name="loading"></h-icon>
-    <div class="content">
+    <div class="content" v-if="(!icon && !loading) || (shape !== 'circle')">
       <slot></slot>
     </div>
   </button>
@@ -21,9 +21,15 @@
           return ['default', 'primary', 'success', 'warning', 'danger', 'link', 'text'].includes(value);
         }
       },
-      circle: {
-        type: Boolean,
-        default: false
+      // circle: {
+      //   type: Boolean,
+      //   default: false
+      // },
+      shape: {
+        type: String,
+        validate (value: string) {
+          return value === 'round' || value === 'circle';
+        }
       },
       ghost: {
         type: Boolean,
@@ -41,7 +47,12 @@
           return value === 'left' || value === 'right';
         }
       }
-    }
+    },
+    // computed: {
+    //   contentStyle () {
+    //     return ()
+    //   }
+    // }
   })
   export default HaloButton
 </script>
@@ -75,10 +86,13 @@
     }
     > .content {
       order: 2;
+      /*margin: 0 .2em;*/
     }
     > .icon {
       order: 1;
-      margin-right: .1em;
+      /*margin-right: .2em;*/
+      fill: currentColor;
+      margin: 0 .2em;
     }
     > .icon.loading {
       animation: spin 2s infinite linear;
@@ -89,8 +103,8 @@
       }
       > .icon {
         order: 2;
-        margin-right: 0;
-        margin-left: .1em;
+        /*margin-right: 0;*/
+        /*margin-left: .2em;*/
       }
     }
     &-default {
@@ -153,8 +167,14 @@
         }
       }
     }
-    &-circle {
+    &-round {
       border-radius: 32px;
+    }
+    &-circle {
+      border-radius: 50%;
+      min-width: 32px;
+      padding: 0;
+      text-align: center;
     }
     &-ghost {
       background: none;

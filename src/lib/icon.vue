@@ -1,18 +1,21 @@
 <template>
-  <svg class="h-icon">
+  <svg class="halo-icon">
     <use :xlink:href="`#i-${name}`"></use>
   </svg>
 </template>
 <script lang="ts">
-  export default {
+  import {defineComponent} from 'vue';
+
+  const HaloIcon = defineComponent({
     name: 'HaloIcon',
     props: {
       name: {}
     }
-  }
+  })
+  export default HaloIcon
 </script>
 <style lang="scss" scoped>
-  .h-icon {
+  .halo-icon {
     width: 1em;
     height: 1em;
   }
