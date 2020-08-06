@@ -1,5 +1,13 @@
 <template>
-  <button class="halo-button" :class="{[`halo-button-icon-${iconPosition}`]: true, [`halo-button-${type}`]: true, [`halo-button-${shape}`]: !!shape, ['halo-button-ghost']: ghost}" @click="$emit('click')">
+  <button class="halo-button"
+          :class="{
+            [`halo-button-icon-${iconPosition}`]: true,
+            [`halo-button-${type}`]: true,
+            [`halo-button-${shape}`]: !!shape,
+            ['halo-button-ghost']: ghost,
+            ['halo-button-disabled']: disabled,
+          }"
+          @click="$emit('click')">
     <h-icon class="icon" v-if="icon && !loading" :name="icon"></h-icon>
     <h-icon class="icon loading" v-if="loading" name="loading"></h-icon>
     <div class="content" v-if="(!icon && !loading) || (shape !== 'circle')">
@@ -21,10 +29,6 @@
           return ['default', 'primary', 'success', 'warning', 'danger', 'link', 'text'].includes(value);
         }
       },
-      // circle: {
-      //   type: Boolean,
-      //   default: false
-      // },
       shape: {
         type: String,
         validate (value: string) {
@@ -36,23 +40,22 @@
         default: false
       },
       icon: {},
-      loading: {
-        type: Boolean,
-        default: false
-      },
       iconPosition: {
         type: String,
         default: 'left',
         validate (value: string) {
           return value === 'left' || value === 'right';
         }
-      }
+      },
+      disabled: {
+        type: Boolean,
+        default: false
+      },
+      loading: {
+        type: Boolean,
+        default: false
+      },
     },
-    // computed: {
-    //   contentStyle () {
-    //     return ()
-    //   }
-    // }
   })
   export default HaloButton
 </script>
@@ -81,16 +84,15 @@
     justify-content: center;
     align-items: center;
     vertical-align: middle;
+    cursor: pointer;
     &:focus {
       outline: none;
     }
     > .content {
       order: 2;
-      /*margin: 0 .2em;*/
     }
     > .icon {
       order: 1;
-      /*margin-right: .2em;*/
       fill: currentColor;
       margin: 0 .2em;
     }
@@ -103,8 +105,6 @@
       }
       > .icon {
         order: 2;
-        /*margin-right: 0;*/
-        /*margin-left: .2em;*/
       }
     }
     &-default {
@@ -185,6 +185,25 @@
         background: none;
       }
       &:active {
+        background: none;
+      }
+    }
+    &-disabled {
+      &, &:hover, &:focus, &:active {
+        cursor: not-allowed;
+        border-color: $default-border-color;
+        background-color: $default-background-color-disabled;
+        color: $default-color-disabled !important;
+      }
+    }
+    &-disabled.halo-button-ghost {
+      &, &:hover, &:focus, &:active {
+        background: none;
+      }
+    }
+    &-disabled.halo-button-link, &-disabled.halo-button-text {
+      &, &:hover, &:focus, &:active {
+        border: none;
         background: none;
       }
     }

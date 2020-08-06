@@ -33,7 +33,7 @@
         <h-button type="primary" ghost>Primary</h-button>
         <h-button type="success" ghost>Success</h-button>
         <h-button type="warning" ghost>Warning</h-button>
-        <h-button type="danger" circle ghost>Danger</h-button>
+        <h-button type="danger" shape="round" ghost>Danger</h-button>
       </Example>
     </section>
     <section>
@@ -48,6 +48,24 @@
         <h-button type="warning" icon="setting" icon-position="right">Setting</h-button>
         <h-button type="link" icon="setting">Setting</h-button>
         <h-button type="text" icon="setting">Setting</h-button>
+      </Example>
+    </section>
+    <section>
+      <H2>按钮禁用</H2>
+      <P>按钮为禁用状态。</P>
+      <Example :code="disabledExampleCode">
+        <h-button shape="circle" icon="setting"></h-button>
+        <h-button shape="circle" icon="setting" disabled></h-button>
+        <h-button type="primary">Primary</h-button>
+        <h-button type="primary" disabled>Primary</h-button>
+        <h-button type="success" shape="round">Success</h-button>
+        <h-button type="success" shape="round" disabled>Success</h-button>
+        <h-button type="danger" ghost>Danger</h-button>
+        <h-button type="danger" ghost disabled>Danger</h-button>
+        <h-button type="link">Link</h-button>
+        <h-button type="link" disabled>Link</h-button>
+        <h-button type="text">Text</h-button>
+        <h-button type="text" disabled>Text</h-button>
       </Example>
     </section>
   </article>
@@ -100,6 +118,20 @@
           '<h-button type="link" icon="setting">Setting</h-button>\n' +
           '<h-button type="text" icon="setting">Setting</h-button>\n' +
           '```',
+        disabledExampleCode: '```html\n' +
+          '<h-button shape="circle" icon="setting"></h-button>\n' +
+          '<h-button shape="circle" icon="setting" disabled></h-button>\n' +
+          '<h-button type="primary">Primary</h-button>\n' +
+          '<h-button type="primary" disabled>Primary</h-button>\n' +
+          '<h-button type="success" shape="round">Success</h-button>\n' +
+          '<h-button type="success" shape="round" disabled>Success</h-button>\n' +
+          '<h-button type="danger" ghost>Danger</h-button>\n' +
+          '<h-button type="danger" ghost disabled>Danger</h-button>\n' +
+          '<h-button type="link">Link</h-button>\n' +
+          '<h-button type="link" disabled>Link</h-button>\n' +
+          '<h-button type="text">Text</h-button>\n' +
+          '<h-button type="text" disabled>Text</h-button>\n' +
+          '```',
       }
     },
   })
@@ -107,6 +139,6 @@
 </script>
 <style lang="scss" scoped>
   button {
-    margin-right: 1em;
+    margin: .2em .5em;
   }
 </style>
