@@ -100,6 +100,10 @@
         </h-button-group>
       </Example>
     </section>
+    <section class="buttonApi">
+      <H2>API</H2>
+      <Api :content="buttonApi"></Api>
+    </section>
   </article>
 </template>
 <script lang="ts">
@@ -109,11 +113,12 @@
   import P from '../components/P.vue'
   import Span from '../components/Span.vue'
   import Example from '../components/Example.vue'
+  import Api from '../components/Api.vue'
   import Button from '../lib/button.vue'
   import ButtonGroup from '../lib/button-group.vue'
   const ButtonDemo = defineComponent({
     components: {
-      H1, H2, P, Span, Example,
+      H1, H2, P, Span, Example, Api,
       'h-button': Button,
       'h-button-group': ButtonGroup
     },
@@ -174,6 +179,18 @@
           '<h-button shape="round" loading ghost disabled>Loading</h-button>\n' +
           '<h-button type="primary" :loading="loading" @click="loading = true">{{!loading ? \'Click me\' : \'Loading\'}}</h-button>\n' +
           '```',
+        buttonApi: {
+          head: ['属性', '说明', '类型', '默认值', '可选值'],
+          body: [
+            ['type', '按钮类型', 'String', 'default', 'primary / success / warning / danger / link / text'],
+            ['shape', '按钮形状', 'String', '-', 'round / circle'],
+            ['ghost', '是否为幽灵按钮', 'Boolean', 'false', '-'],
+            ['icon', '图标类名', 'String', '-', '-'],
+            ['icon-position', '图标位置', 'String', 'left', 'right'],
+            ['disabled', '是否禁用按钮', 'Boolean', 'false', '-'],
+            ['loading', '是否处于加载中状态', 'Boolean', 'false', '-']
+          ]
+        }
       }
     },
   })
