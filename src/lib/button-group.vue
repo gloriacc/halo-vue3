@@ -1,5 +1,5 @@
 <template>
-  <div class="h-button-group">
+  <div class="halo-button-group">
     <slot></slot>
   </div>
 </template>
@@ -16,24 +16,40 @@
   }
 </script>
 <style lang="scss">
-  .h-button-group {
-    display: inline-flex;
+  @import './src/index';
+  .halo-button-group {
+    display: inline-block;
     vertical-align: middle;
-    > .h-button {
+    > .halo-button {
       border-radius: 0;
-      margin-left: -1px;
+
       &:first-child {
-        border-top-left-radius: var(--border-radius);
-        border-bottom-left-radius: var(--border-radius);
+        border-top-left-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+
       }
       &:last-child {
-        border-top-right-radius: var(--border-radius);
-        border-bottom-right-radius: var(--border-radius);
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
       }
       &:hover {
         position: relative;
         z-index: 1;
       }
     }
+    @each $shape, $border in (circle, $circle-border-radius),
+      (round, $round-border-radius) {
+      > .halo-button-#{$shape} {
+        &:first-child {
+          border-top-left-radius: $border;
+          border-bottom-left-radius: $border;
+        }
+        &:last-child {
+          border-top-right-radius: $border;
+          border-bottom-right-radius: $border;
+        }
+      }
+    }
+
   }
 </style>

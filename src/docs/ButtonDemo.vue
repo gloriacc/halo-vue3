@@ -2,7 +2,7 @@
   <article>
     <H1>Button 按钮</H1>
     <P>基础组件。</P>
-    <section>
+    <section class="regularExample">
       <H2>常规按钮</H2>
       <P>常规的操作按钮。</P>
       <Example :code="regularExampleCode">
@@ -15,7 +15,7 @@
         <h-button type="text">Text</h-button>
       </Example>
     </section>
-    <section>
+    <section class="shapeExample">
       <H2>不同形状的按钮</H2>
       <P>圆角、圆形的操作按钮。</P>
       <Example :code="shapeExampleCode">
@@ -25,7 +25,7 @@
         <h-button type="primary" shape="round">Primary</h-button>
       </Example>
     </section>
-    <section>
+    <section class="ghostExample">
       <H2>幽灵按钮</H2>
       <P>背景透明的操作按钮。</P>
       <Example :code="ghostExampleCode">
@@ -36,7 +36,7 @@
         <h-button type="danger" shape="round" ghost>Danger</h-button>
       </Example>
     </section>
-    <section>
+    <section class="iconExample">
       <H2>图标按钮</H2>
       <P>带图标的操作按钮。</P>
       <P>当 <Span>shape</Span> 属性为 <Span>circle</Span> 时，只显示由 <Span>icon</Span> 属性设置的图标，忽略内容。</P>
@@ -51,7 +51,7 @@
         <h-button type="text" icon="setting">Setting</h-button>
       </Example>
     </section>
-    <section>
+    <section class="disabledExample">
       <H2>禁用</H2>
       <P>按钮为禁用状态。</P>
       <Example :code="disabledExampleCode">
@@ -69,7 +69,7 @@
         <h-button type="text" disabled>Text</h-button>
       </Example>
     </section>
-    <section>
+    <section class="loadingExample">
       <H2>加载中</H2>
       <P>按钮为加载中状态。</P>
       <Example :code="loadingExampleCode">
@@ -81,13 +81,22 @@
         <h-button type="primary" :loading="loading" @click="loading = true">{{!loading ? 'Click me' : 'Loading'}}</h-button>
       </Example>
     </section>
-    <section>
+    <section class="groupExample">
       <H2>组合按钮</H2>
       <P>包含多个按钮</P>
       <Example :code="loadingExampleCode">
-        <h-button-group class="group">
-          <h-button>previous</h-button>
-          <h-button>next</h-button>
+        <h-button-group>
+          <h-button>上一页</h-button>
+          <h-button>下一页</h-button>
+        </h-button-group>
+        <h-button-group>
+          <h-button type="primary">上一页</h-button>
+          <h-button type="danger">下一页</h-button>
+        </h-button-group>
+        <h-button-group>
+          <h-button shape="circle">A</h-button>
+          <h-button shape="circle">B</h-button>
+          <h-button shape="circle">C</h-button>
         </h-button-group>
       </Example>
     </section>
@@ -171,13 +180,14 @@
   export default ButtonDemo
 </script>
 <style lang="scss" scoped>
-  button {
-    margin: .2em .5em;
+  section:not(.groupExample) {
+    .halo-button {
+      margin: .2em .5em;
+    }
   }
-  .group {
-    margin: .2em .5em;
-    button {
-      margin: 0;
+  section.groupExample {
+    .halo-button-group {
+      margin: .2em .5em;
     }
   }
 </style>
