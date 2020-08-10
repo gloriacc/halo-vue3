@@ -16,7 +16,9 @@
   }
 </script>
 <style lang="scss">
-  @import './src/index';
+  $border-radius: 4px;
+  $round-border-radius: 32px;
+  $circle-border-radius: 50%;
   .halo-button-group {
     display: inline-block;
     vertical-align: middle;

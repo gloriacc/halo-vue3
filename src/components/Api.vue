@@ -20,9 +20,11 @@
   export default Api
 </script>
 <style lang="scss" scoped>
+  $border-color: #eee;
+  $head-color: #757575;
   .api {
     width: 100%;
-    border: 2px solid #eee;
+    border: 2px solid $border-color;
     display: flex;
     flex-direction: column;
     font-size: 14px;
@@ -41,12 +43,12 @@
       }
     }
     .api-head {
-      border-bottom: 2px solid #eee;
+      border-bottom: 2px solid $border-color;
       font-weight: bold;
-      color: #757575;
-      background-color: #eee;
+      color: $head-color;
+      background-color: $border-color;
       li {
-        border-right: 1px solid #eee;
+        border-right: 1px solid $border-color;
         padding: 1em .5em;
       }
     }
@@ -54,17 +56,15 @@
       display: flex;
       flex-direction: column;
       ul {
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid $border-color;
         li {
           padding: .5em .5em;
-          border-right: 1px solid #eee;
+          border-right: 1px solid $border-color;
         }
         &:last-child {
           border-bottom: none;
         }
       }
     }
-
   }
-
 </style>

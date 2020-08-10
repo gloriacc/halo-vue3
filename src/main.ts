@@ -1,8 +1,10 @@
+import "./lib/halo.scss"
+import './index.scss'
 import { createApp } from 'vue'
 import  store from './store'
 import {router} from './router'
 import App from './App.vue'
-import './index.scss'
+
 import hljs from 'highlight.js'
 import 'highlight.js/styles/tomorrow.css'
 
