@@ -7,12 +7,12 @@
       <P>常规的操作按钮。</P>
       <Example :code="regularExampleCode">
         <h-button>Default</h-button>
-        <h-button type="primary">Primary</h-button>
-        <h-button type="success">Success</h-button>
-        <h-button type="warning">Warning</h-button>
-        <h-button type="danger">Danger</h-button>
-        <h-button type="link">Link</h-button>
-        <h-button type="text">Text</h-button>
+        <h-button kind="primary">Primary</h-button>
+        <h-button kind="success">Success</h-button>
+        <h-button kind="warning">Warning</h-button>
+        <h-button kind="danger">Danger</h-button>
+        <h-button kind="link">Link</h-button>
+        <h-button kind="text">Text</h-button>
       </Example>
     </section>
     <section class="shapeExample">
@@ -20,9 +20,9 @@
       <P>圆角、圆形的操作按钮。</P>
       <Example :code="shapeExampleCode">
         <h-button shape="circle">H</h-button>
-        <h-button type="primary" shape="circle">H</h-button>
+        <h-button kind="primary" shape="circle">H</h-button>
         <h-button shape="round">H</h-button>
-        <h-button type="primary" shape="round">Primary</h-button>
+        <h-button kind="primary" shape="round">Primary</h-button>
       </Example>
     </section>
     <section class="ghostExample">
@@ -30,10 +30,10 @@
       <P>背景透明的操作按钮。</P>
       <Example :code="ghostExampleCode">
         <h-button ghost>Default</h-button>
-        <h-button type="primary" ghost>Primary</h-button>
-        <h-button type="success" ghost>Success</h-button>
-        <h-button type="warning" ghost>Warning</h-button>
-        <h-button type="danger" shape="round" ghost>Danger</h-button>
+        <h-button kind="primary" ghost>Primary</h-button>
+        <h-button kind="success" ghost>Success</h-button>
+        <h-button kind="warning" ghost>Warning</h-button>
+        <h-button kind="danger" shape="round" ghost>Danger</h-button>
       </Example>
     </section>
     <section class="iconExample">
@@ -44,11 +44,11 @@
         <h-button shape="circle" icon="setting"></h-button>
         <h-button shape="round" icon="setting"></h-button>
         <h-button icon="setting"></h-button>
-        <h-button type="primary" icon="setting">Setting</h-button>
-        <h-button type="success" icon="setting" ghost>Setting</h-button>
-        <h-button type="warning" icon="setting" icon-position="right">Setting</h-button>
-        <h-button type="link" icon="setting">Setting</h-button>
-        <h-button type="text" icon="setting">Setting</h-button>
+        <h-button kind="primary" icon="setting">Setting</h-button>
+        <h-button kind="success" icon="setting" ghost>Setting</h-button>
+        <h-button kind="warning" icon="setting" icon-position="right">Setting</h-button>
+        <h-button kind="link" icon="setting">Setting</h-button>
+        <h-button kind="text" icon="setting">Setting</h-button>
       </Example>
     </section>
     <section class="disabledExample">
@@ -57,16 +57,16 @@
       <Example :code="disabledExampleCode">
         <h-button shape="circle" icon="setting"></h-button>
         <h-button shape="circle" icon="setting" disabled></h-button>
-        <h-button type="primary">Primary</h-button>
-        <h-button type="primary" disabled>Primary</h-button>
-        <h-button type="success" shape="round">Success</h-button>
-        <h-button type="success" shape="round" disabled>Success</h-button>
-        <h-button type="danger" ghost>Danger</h-button>
-        <h-button type="danger" ghost disabled>Danger</h-button>
-        <h-button type="link">Link</h-button>
-        <h-button type="link" disabled>Link</h-button>
-        <h-button type="text">Text</h-button>
-        <h-button type="text" disabled>Text</h-button>
+        <h-button kind="primary">Primary</h-button>
+        <h-button kind="primary" disabled>Primary</h-button>
+        <h-button kind="success" shape="round">Success</h-button>
+        <h-button kind="success" shape="round" disabled>Success</h-button>
+        <h-button kind="danger" ghost>Danger</h-button>
+        <h-button kind="danger" ghost disabled>Danger</h-button>
+        <h-button kind="link">Link</h-button>
+        <h-button kind="link" disabled>Link</h-button>
+        <h-button kind="text">Text</h-button>
+        <h-button kind="text" disabled>Text</h-button>
       </Example>
     </section>
     <section class="loadingExample">
@@ -74,11 +74,11 @@
       <P>按钮为加载中状态。</P>
       <Example :code="loadingExampleCode">
         <h-button shape="circle" loading></h-button>
-        <h-button type="primary" loading>Loading</h-button>
-        <h-button type="link" loading>Loading</h-button>
-        <h-button type="text" icon-position="right" loading>Loading</h-button>
+        <h-button kind="primary" loading>Loading</h-button>
+        <h-button kind="link" loading>Loading</h-button>
+        <h-button kind="text" icon-position="right" loading>Loading</h-button>
         <h-button shape="round" loading ghost disabled>Loading</h-button>
-        <h-button type="primary" :loading="loading" @click="loading = true">{{!loading ? 'Click me' : 'Loading'}}</h-button>
+        <h-button kind="primary" :loading="loading" @click="loading = true">{{!loading ? 'Click me' : 'Loading'}}</h-button>
       </Example>
     </section>
     <section class="groupExample">
@@ -90,8 +90,8 @@
           <h-button>下一页</h-button>
         </h-button-group>
         <h-button-group>
-          <h-button type="primary">上一页</h-button>
-          <h-button type="danger">下一页</h-button>
+          <h-button kind="primary">上一页</h-button>
+          <h-button kind="danger">下一页</h-button>
         </h-button-group>
         <h-button-group>
           <h-button shape="circle">A</h-button>
@@ -127,62 +127,62 @@
         loading: false,
         regularExampleCode: '```html\n' +
           '<h-button>Default</h-button>\n' +
-          '<h-button type="primary">Primary</h-button>\n' +
-          '<h-button type="success">Success</h-button>\n' +
-          '<h-button type="warning">Warning</h-button>\n' +
-          '<h-button type="danger">Danger</h-button>\n' +
-          '<h-button type="link">Link</h-button>\n' +
-          '<h-button type="text">Text</h-button>\n' +
+          '<h-button kind="primary">Primary</h-button>\n' +
+          '<h-button kind="success">Success</h-button>\n' +
+          '<h-button kind="warning">Warning</h-button>\n' +
+          '<h-button kind="danger">Danger</h-button>\n' +
+          '<h-button kind="link">Link</h-button>\n' +
+          '<h-button kind="text">Text</h-button>\n' +
           '```',
         shapeExampleCode: '```html\n' +
           '<h-button shape="circle">H</h-button>\n' +
-          '<h-button type="primary" shape="circle">H</h-button>\n' +
+          '<h-button kind="primary" shape="circle">H</h-button>\n' +
           '<h-button shape="round">H</h-button>\n' +
-          '<h-button type="primary" shape="round">Primary</h-button>\n' +
+          '<h-button kind="primary" shape="round">Primary</h-button>\n' +
           '```',
         ghostExampleCode: '```html\n' +
           '<h-button ghost>Default</h-button>\n' +
-          '<h-button type="primary" ghost>Primary</h-button>\n' +
-          '<h-button type="success" ghost>Success</h-button>\n' +
-          '<h-button type="warning" ghost>Warning</h-button>\n' +
-          '<h-button type="danger" circle ghost>Danger</h-button>\n' +
+          '<h-button kind="primary" ghost>Primary</h-button>\n' +
+          '<h-button kind="success" ghost>Success</h-button>\n' +
+          '<h-button kind="warning" ghost>Warning</h-button>\n' +
+          '<h-button kind="danger" circle ghost>Danger</h-button>\n' +
           '```',
         iconExampleCode: '```html\n' +
           '<h-button shape="circle" icon="setting"></h-button>\n' +
           '<h-button shape="round" icon="setting"></h-button>\n' +
           '<h-button icon="setting"></h-button>\n' +
-          '<h-button type="primary" icon="setting">Setting</h-button>\n' +
-          '<h-button type="success" icon="setting" ghost>Setting</h-button>\n' +
-          '<h-button type="warning" icon="setting" icon-position="right">Setting</h-button>\n' +
-          '<h-button type="link" icon="setting">Setting</h-button>\n' +
-          '<h-button type="text" icon="setting">Setting</h-button>\n' +
+          '<h-button kind="primary" icon="setting">Setting</h-button>\n' +
+          '<h-button kind="success" icon="setting" ghost>Setting</h-button>\n' +
+          '<h-button kind="warning" icon="setting" icon-position="right">Setting</h-button>\n' +
+          '<h-button kind="link" icon="setting">Setting</h-button>\n' +
+          '<h-button kind="text" icon="setting">Setting</h-button>\n' +
           '```',
         disabledExampleCode: '```html\n' +
           '<h-button shape="circle" icon="setting"></h-button>\n' +
           '<h-button shape="circle" icon="setting" disabled></h-button>\n' +
-          '<h-button type="primary">Primary</h-button>\n' +
-          '<h-button type="primary" disabled>Primary</h-button>\n' +
-          '<h-button type="success" shape="round">Success</h-button>\n' +
-          '<h-button type="success" shape="round" disabled>Success</h-button>\n' +
-          '<h-button type="danger" ghost>Danger</h-button>\n' +
-          '<h-button type="danger" ghost disabled>Danger</h-button>\n' +
-          '<h-button type="link">Link</h-button>\n' +
-          '<h-button type="link" disabled>Link</h-button>\n' +
-          '<h-button type="text">Text</h-button>\n' +
-          '<h-button type="text" disabled>Text</h-button>\n' +
+          '<h-button kind="primary">Primary</h-button>\n' +
+          '<h-button kind="primary" disabled>Primary</h-button>\n' +
+          '<h-button kind="success" shape="round">Success</h-button>\n' +
+          '<h-button kind="success" shape="round" disabled>Success</h-button>\n' +
+          '<h-button kind="danger" ghost>Danger</h-button>\n' +
+          '<h-button kind="danger" ghost disabled>Danger</h-button>\n' +
+          '<h-button kind="link">Link</h-button>\n' +
+          '<h-button kind="link" disabled>Link</h-button>\n' +
+          '<h-button kind="text">Text</h-button>\n' +
+          '<h-button kind="text" disabled>Text</h-button>\n' +
           '```',
         loadingExampleCode: '```html\n' +
           '<h-button shape="circle" loading></h-button>\n' +
-          '<h-button type="primary" loading>Loading</h-button>\n' +
-          '<h-button type="link" loading>Loading</h-button>\n' +
-          '<h-button type="text" icon-position="right" loading>Loading</h-button>\n' +
+          '<h-button kind="primary" loading>Loading</h-button>\n' +
+          '<h-button kind="link" loading>Loading</h-button>\n' +
+          '<h-button kind="text" icon-position="right" loading>Loading</h-button>\n' +
           '<h-button shape="round" loading ghost disabled>Loading</h-button>\n' +
-          '<h-button type="primary" :loading="loading" @click="loading = true">{{!loading ? \'Click me\' : \'Loading\'}}</h-button>\n' +
+          '<h-button kind="primary" :loading="loading" @click="loading = true">{{!loading ? \'Click me\' : \'Loading\'}}</h-button>\n' +
           '```',
         buttonApi: {
           head: ['属性', '说明', '类型', '默认值', '可选值'],
           body: [
-            ['type', '按钮类型', 'String', 'default', 'primary / success / warning / danger / link / text'],
+            ['kind', '按钮类型', 'String', 'default', 'primary / success / warning / danger / link / text'],
             ['shape', '按钮形状', 'String', '-', 'round / circle'],
             ['ghost', '是否为幽灵按钮', 'Boolean', 'false', '-'],
             ['icon', '图标类名', 'String', '-', '-'],

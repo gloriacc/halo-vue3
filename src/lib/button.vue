@@ -2,7 +2,7 @@
   <button class="halo-button"
           :class="{
             [`halo-button-icon-${iconPosition}`]: true,
-            [`halo-button-${type}`]: true,
+            [`halo-button-${kind}`]: true,
             [`halo-button-${shape}`]: !!shape,
             ['halo-button-ghost']: ghost,
             ['halo-button-disabled']: disabled,
@@ -22,7 +22,7 @@
     name: 'HaloButton',
     components: {'h-icon': Icon},
     props: {
-      type: {
+      kind: {
         type: String,
         default: 'default',
         validate (value: string) {
@@ -102,7 +102,7 @@
 
   $text-color: $default-color;
 
-  $button-types: primary, success, warning, danger;
+  $button-kinds: primary, success, warning, danger;
 
   $background-colors: $primary-background-color, $success-background-color, $warning-background-color, $danger-background-color;
   $background-colors-hover: $primary-background-color-hover, $success-background-color-hover, $warning-background-color-hover, $danger-background-color-hover;
@@ -196,8 +196,8 @@
       border: none;
       color: $text-color;
     }
-    @for $i from 1 through length($button-types) {
-      &-#{nth($button-types, $i)} {
+    @for $i from 1 through length($button-kinds) {
+      &-#{nth($button-kinds, $i)} {
         @include halo-button-type-color(nth($background-colors, $i));
         color: white;
         &:hover {
@@ -210,7 +210,7 @@
           @include halo-button-type-color(nth($background-colors-active, $i));
         }
       }
-      &-#{nth($button-types, $i)}.halo-button-ghost {
+      &-#{nth($button-kinds, $i)}.halo-button-ghost {
         color: nth($background-colors, $i);
         &:hover {
           color: nth($background-colors-hover, $i);
@@ -223,7 +223,7 @@
         }
       }
 
-      &-#{nth($button-types, $i)}.halo-button-loading {
+      &-#{nth($button-kinds, $i)}.halo-button-loading {
         &, &:hover, &:focus, &:active {
           @include halo-button-type-color(nth($background-colors-hover, $i));
         }
