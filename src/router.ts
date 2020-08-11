@@ -17,13 +17,13 @@ export const router = createRouter({
     {path: '/', component: Home},
     {path: '/doc', component: Doc, children: [
         {path: '', component: DocDemo},
-        {path: 'switch', component: SwitchDemo, meta: { title: 'Switch 开关' }},
         {path: 'button', component: ButtonDemo, meta: { title: 'Button 按钮' }},
+        {path: 'icon', component: IconDemo, meta: { title: 'Icon 图标' }},
+        {path: 'switch', component: SwitchDemo, meta: { title: 'Switch 开关' }},
         {path: 'dialog', component: DialogDemo, meta: { title: 'Dialog' }},
         {path: 'tabs', component: TabsDemo, meta: { title: 'Tabs' }},
         {path: 'input', component: InputDemo, meta: { title: 'Input' }},
         {path: 'layout', component: LayoutDemo, meta: { title: 'Layout' }},
-        {path: 'icon', component: IconDemo, meta: { title: 'Icon' }},
       ]
     }
   ]
