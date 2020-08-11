@@ -1,13 +1,13 @@
 <template>
   <button class="halo-button"
           :class="{
-            [`halo-button-icon-${iconPosition}`]: true,
-            [`halo-button-${kind}`]: true,
-            [`halo-button-${shape}`]: !!shape,
-            ['halo-button-ghost']: ghost,
-            ['halo-button-disabled']: disabled,
-            ['halo-button-loading']: loading,
-          }">
+          [`halo-button-icon-${iconPosition}`]: true,
+          [`halo-button-${kind}`]: true,
+          [`halo-button-${shape}`]: !!shape,
+          ['halo-button-ghost']: ghost,
+          ['halo-button-disabled']: disabled,
+          ['halo-button-loading']: loading,
+        }">
     <h-icon class="icon" v-if="icon && !loading" :name="icon"></h-icon>
     <h-icon class="icon loading" v-if="loading" name="loading"></h-icon>
     <div class="content" v-if="(!icon && !loading) || (shape !== 'circle')">
