@@ -20,10 +20,10 @@ export const router = createRouter({
         {path: 'button', component: ButtonDemo, meta: { title: 'Button 按钮' }},
         {path: 'icon', component: IconDemo, meta: { title: 'Icon 图标' }},
         {path: 'switch', component: SwitchDemo, meta: { title: 'Switch 开关' }},
+        {path: 'input', component: InputDemo, meta: { title: 'Input 输入框' }},
+        {path: 'layout', component: LayoutDemo, meta: { title: 'Layout' }},
         {path: 'dialog', component: DialogDemo, meta: { title: 'Dialog' }},
         {path: 'tabs', component: TabsDemo, meta: { title: 'Tabs' }},
-        {path: 'input', component: InputDemo, meta: { title: 'Input' }},
-        {path: 'layout', component: LayoutDemo, meta: { title: 'Layout' }},
       ]
     }
   ]

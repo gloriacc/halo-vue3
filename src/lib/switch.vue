@@ -20,10 +20,8 @@
       checkedContent: String
     },
     setup (props, context) {
-      console.log(props.value);
       const curValue = ref(props.value || false)
       const toggle = () => {
-
         if (props.disabled) return
         curValue.value = !curValue.value
         context.emit('update:value', !props.value)

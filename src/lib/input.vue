@@ -1,55 +1,65 @@
 <template>
-  <div class="wrapper" :class="{error}">
-    <input :value="value" type="text" :disabled="disabled" :readonly="readonly"
-      @change="$emit('change', $event.target.value)"
-      @input="$emit('input', $event.target.value)"
-      @blur="$emit('blur', $event.target.value)"
-      @focus="$emit('focus', $event.target.value)"
+  <div class="halo-input">
+    <Icon class="halo-input-prefix" v-if="prefixIcon" :name="prefixIcon"></Icon>
+    <textarea v-if="type === 'textarea'"
+              v-bind="$attrs"
+              :value="value"
+              @input="$emit('update:value', $event.target.value)"
+    ></textarea>
+    <input v-else
+           v-bind="$attrs"
+           :value="value"
+           :type="type"
+           @input="$emit('update:value', $event.target.value)"
+           @change="$emit('change', $event.target.value)"
+           @blur="$emit('blur', $event.target.value)"
+           @focus="$emit('focus', $event.target.value)"
     />
-    <template v-if="error">
-      <icon class="icon-error" name="tip"></icon>
-      <span class="errorMessage">{{error}}</span>
-    </template>
-
+    <Icon class="halo-input-suffix" v-if="suffixIcon" :name="suffixIcon"></Icon>
+<!--    <template v-if="error">-->
+<!--      <Icon class="icon-error" name="tip"></Icon>-->
+<!--      <span class="errorMessage">{{error}}</span>-->
+<!--    </template>-->
   </div>
 </template>
-<script>
+<script lang="ts">
   import Icon from './icon.vue'
-  export default {
+  import {defineComponent} from 'vue'
+  const HaloInput = defineComponent({
     name: 'HaloInput',
     components: {Icon},
     props: {
       value: {
         type: String,
       },
-      disabled: {
-        type: Boolean,
-        default: false
-      },
-      readonly: {
-        type: Boolean,
-        default: false
-      },
-      error: {
+      prefixIcon: String,
+      suffixIcon: String,
+      type: {
         type: String,
+        default: 'text'
       }
-    }
-  }
+      /*error: {
+        type: String,
+      }*/
+    },
+  })
+  export default HaloInput
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
   $height: 32px;
   $border-color: #999;
   $border-color-hover: #666;
   $font-size: 14px;
   $box-shadow-color: rgba(0,0,0,0.5);
   $red: #F1453D;
-  .wrapper {
+  .halo-input {
     font-size: $font-size;
     display: inline-flex;
     align-items: center;
-    > :not(:last-child) {
+    position: relative;
+    /*> :not(:last-child) {
       margin-right: .5em;
-    }
+    }*/
     > input {
       height: $height;
       border: 1px solid $border-color;
@@ -69,8 +79,22 @@
         cursor: not-allowed;
         background: none;
       }
+      &:not(:first-child) {
+        padding-left: 30px;
+      }
+      &:not(:last-child) {
+        padding-right: 36px;
+      }
     }
-    &.error {
+    .halo-input-prefix {
+      position: absolute;
+      left: 10px;
+    }
+    .halo-input-suffix {
+      position: absolute;
+      right: 10px;
+    }
+   /* &.error {
       > input {
         border-color: $red;
       }
@@ -80,6 +104,6 @@
     }
     .errorMessage {
       color: $red;
-    }
+    }*/
   }
 </style>

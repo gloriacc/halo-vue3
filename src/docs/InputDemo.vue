@@ -1,24 +1,100 @@
 <template>
-  <div>
-    <h-input value="大猪" @change="inputChange1" @input="inputInput1" @blur="inputBlur1" @focus="inputFocus1"></h-input>
-    <div>
-      <h-input value="大猪" v-model="message"></h-input>
-      <span>{{message}}</span>
-    </div>
-    <h-input value="大猪" disabled></h-input>
-    <h-input value="大猪" readonly></h-input>
-    <div>
-      <h-input value="大猪" error="woldle"></h-input>
-    </div>
-  </div>
+  <article>
+    <H1>Input 输入框</H1>
+    <P>基本表单组件。</P>
+    <section>
+      <H2>基础用法</H2>
+      <Example :code="regularExampleCode">
+        <div>
+          <h-input placeholder="请输入" v-model:value="value1"></h-input>
+        </div>
+      </Example>
+    </section>
+    <section>
+      <H2>带图标的输入框</H2>
+      <Example :code="iconExampleCode">
+        <div>
+          <h-input placeholder="请输入" prefix-icon="tip"></h-input>
+          <h-input placeholder="请输入" suffix-icon="ok"></h-input>
+          <h-input placeholder="请输入" prefix-icon="tip" suffix-icon="ok"></h-input>
+        </div>
+      </Example>
+    </section>
+    <section>
+      <H2>文本域</H2>
+      <Example :code="textareaExampleCode">
+        <div>
+          <h-input type="textarea" placeholder="请输入"></h-input>
+          <h-input type="textarea" placeholder="请输入" rows="5"></h-input>
+          <h-input type="textarea" placeholder="请输入" rows="5" cols="10"></h-input>
+        </div>
+      </Example>
+    </section>
+    <section class="inputApi">
+      <H2>API</H2>
+      <Api :content="inputApi"></Api>
+    </section>
+  </article>
 </template>
 <script lang="ts">
-  import Input from '../lib/input.vue'
-  export default {
+  import {defineComponent, ref} from 'vue';
+  import H1 from '../components/H1.vue';
+  import H2 from '../components/H2.vue';
+  import P from '../components/P.vue';
+  import Span from '../components/Span.vue';
+  import Example from '../components/Example.vue';
+  import Api from '../components/Api.vue';
+  import Input from '../lib/input.vue';
+
+  const InputDemo = defineComponent({
     components: {
-      'h-input': Input
+      H1, H2, P, Span, Example, Api,
+      'h-input': Input,
+    },
+    setup () {
+      const value1 = ref('测试')
+      return {value1}
+    },
+    data () {
+      return {
+        regularExampleCode: '```html\n' +
+          '<h-input placeholder="请输入" v-model:value="value"></h-input>\n' +
+          '<script>\n' +
+          '  export default {\n' +
+          '    data() {\n' +
+          '      return {\n' +
+          '        value: \'Halo\'\n' +
+          '      }\n' +
+          '    }\n' +
+          '  };\n' +
+          '<\/script>\n' +
+          '```',
+        iconExampleCode: '```html\n' +
+          '<h-input placeholder="请输入" prefix-icon="tip"></h-input>\n' +
+          '<h-input placeholder="请输入" suffix-icon="ok"></h-input>\n' +
+          '<h-input placeholder="请输入" prefix-icon="tip" suffix-icon="ok"></h-input>\n' +
+          '```',
+        textareaExampleCode: '```html\n' +
+          '<h-input type="textarea" placeholder="请输入"></h-input>\n' +
+          '<h-input type="textarea" placeholder="请输入" rows="5"></h-input>\n' +
+          '<h-input type="textarea" placeholder="请输入" rows="5" cols="10"></h-input>\n' +
+          '```',
+        inputApi: {
+          head: ['属性', '说明', '类型', '默认值', '可选值'],
+          body: [
+            ['v-model:value', '绑定输入框的值', 'String', '-', '-'],
+            ['type', '输入框类型', 'String', 'text', 'textarea / 其他原生的 type 属性值'],
+            ['placeholder', '原生属性，占位文本', 'String', '-', '-'],
+            ['disabled', '原生属性，是否禁用输入框', 'Boolean', 'false', '-'],
+            ['readonly', '原生属性，是否只读', 'Boolean', 'false', '-'],
+            ['prefix-icon', '前缀图标', 'String', '-', '-'],
+            ['suffix-icon', '后缀图标', 'String', '-', '-'],
+          ]
+        }
+      }
     }
-  }
+  })
+  export default InputDemo
 </script>
 <style lang="scss" scoped>
 
