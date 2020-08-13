@@ -12,5 +12,6 @@
   h1 {
     margin: .6em 0;
     font-size: 2em;
+    color: #161926;
   }
 </style>

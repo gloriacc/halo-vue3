@@ -11,5 +11,6 @@
 <style lang="scss" scoped>
   h2 {
     margin: 1.6em 0 .6em;
+    color: #222c48;
   }
 </style>

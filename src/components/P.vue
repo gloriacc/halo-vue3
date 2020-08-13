@@ -11,7 +11,6 @@
 <style lang="scss" scoped>
   p {
     margin: 1em 0;
-    color: #424242;
   }
   span {
     display: inline-block;

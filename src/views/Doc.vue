@@ -38,6 +38,7 @@
   };
 </script>
 <style lang="scss" scoped>
+  $font-color: #4d80e6;
   .layout {
     display: flex;
     flex-direction: column;
@@ -46,9 +47,9 @@
       flex-shrink: 0;
     }
     > .content {
+      height: 100%;
       flex-grow: 1;
-      padding-top: 65px;
-      padding-left: 200px;
+      padding-top: 6em;
       @media (max-width: 500px) {
         padding-left: 0;
       }
@@ -56,17 +57,14 @@
   }
   .content {
     display: flex;
+
     > aside {
       flex-shrink: 0;
       background-color: white;
       width: 200px;
-      padding: 90px 20px 16px 20px;
-      position: fixed;
-      top: 0;
-      left: 0;
+      padding: 3em 20px 16px 20px;
       height: 100%;
       overflow: auto;
-      border-right: 1px solid #eeeeee;
       > h2 {
         margin-bottom: 4px;
       }
@@ -76,11 +74,11 @@
           font-size: 14px;
           > a {
             &:hover {
-              color: #AA96DA;
+              color: $font-color;
               border-bottom: none;
             }
             &.link-active {
-              color: #AA96DA;
+              color: $font-color;
             }
           }
         }
