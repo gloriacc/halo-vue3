@@ -20,10 +20,10 @@
 </template>
 <script lang="ts">
   import Nav from '../components/Nav.vue'
-  import {inject, Ref} from 'vue'
+  import {inject, Ref, defineComponent} from 'vue'
   import { router } from '../router'
 
-  export default {
+  const Doc = defineComponent({
     components: {Nav},
     setup () {
       const asideVisible = inject<Ref<Boolean>>('asideVisible')
@@ -35,7 +35,8 @@
         link: router.currentRoute
       }
     },
-  };
+  })
+  export default Doc
 </script>
 <style lang="scss" scoped>
   $font-color: #4d80e6;
