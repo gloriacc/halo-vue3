@@ -7,7 +7,7 @@ import {router} from './router'
 import App from './App.vue'
 
 import hljs from 'highlight.js'
-import 'highlight.js/styles/tomorrow.css'
+import 'highlight.js/styles/github.css'
 
 import Button from './lib/button.vue'
 import Icon from './lib/icon.vue'
