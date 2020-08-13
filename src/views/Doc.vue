@@ -50,17 +50,17 @@
       height: 100%;
       flex-grow: 1;
       padding-top: 6em;
+      padding-bottom: 2em;
       @media (max-width: 500px) {
         padding-left: 0;
       }
+
     }
   }
   .content {
     display: flex;
-
     > aside {
       flex-shrink: 0;
-      background-color: white;
       width: 200px;
       padding: 3em 20px 16px 20px;
       height: 100%;
@@ -87,8 +87,27 @@
     > main {
       flex-grow: 1;
       padding: 16px;
-      background: white;
       overflow: auto;
+      &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      &::-webkit-scrollbar-button {
+        display: none;
+      }
+      &::-webkit-scrollbar-track {
+        display: none;
+      }
+      &::-webkit-scrollbar-track-piece {
+        background:#fff;
+      }
+      &::-webkit-scrollbar-thumb{
+        background: #ececec;
+        border-radius: 4px;
+      }
+      &::-webkit-scrollbar-corner {
+        background:#fff;
+      }
     }
   }
 </style>
