@@ -1,13 +1,15 @@
 <template>
   <button class="halo-button"
           :class="{
-          [`halo-button-icon-${iconPosition}`]: true,
-          [`halo-button-${kind}`]: true,
-          [`halo-button-${shape}`]: !!shape,
-          ['halo-button-ghost']: ghost,
-          ['halo-button-disabled']: disabled,
-          ['halo-button-loading']: loading,
-        }">
+            [`halo-button-icon-${iconPosition}`]: true,
+            [`halo-button-${kind}`]: true,
+            [`halo-button-${shape}`]: !!shape,
+            ['halo-button-ghost']: ghost,
+            ['halo-button-disabled']: disabled,
+            ['halo-button-loading']: loading,
+          }"
+          :style="colorStyle"
+  >
     <h-icon class="icon" v-if="icon && !loading" :name="icon"></h-icon>
     <h-icon class="icon loading" v-if="loading" name="loading"></h-icon>
     <div class="content" v-if="(!icon && !loading) || (shape !== 'circle')">
@@ -16,7 +18,7 @@
   </button>
 </template>
 <script lang="ts">
-  import {defineComponent} from 'vue'
+  import {defineComponent, ref} from 'vue'
   import Icon from './icon.vue'
   const HaloButton = defineComponent({
     name: 'HaloButton',
@@ -24,10 +26,12 @@
     props: {
       kind: {
         type: String,
-        default: 'default',
         validate (value: string) {
-          return ['default', 'primary', 'success', 'warning', 'danger', 'link', 'text'].includes(value);
+          return ['link', 'text'].includes(value);
         }
+      },
+      color: {
+        type: String,
       },
       shape: {
         type: String,
@@ -56,57 +60,39 @@
         default: false
       },
     },
+    setup (props) {
+      const {color, kind} = props
+      let colorStyle
+      if (color === 'none') {
+        colorStyle = ref({
+          '--color-background': '#fff',
+          '--color-border': '#9a9a9a',
+          '--color-font': '#9a9a9a',
+        })
+      } else {
+        colorStyle = ref({
+          '--color-background': color || (kind === 'text' ? '#9a9a9a' : '#4d80e6'),
+          '--color-border': color || (kind === 'text' ? '#9a9a9a' : '#4d80e6'),
+          '--color-font': kind ? (kind === 'text' ? '#9a9a9a' : '#4d80e6') : '#fff',
+        })
+      }
+      return {colorStyle}
+    },
   })
   export default HaloButton
 </script>
 <style lang="scss">
   $button-height: 32px;
   $font-size: 14px;
-  $button-bg: white;
-  $button-active-bg: #eee;
-  $border-radius: 4px;
-  $color: #333;
-  $border-color: #999;
-  $border-color-hover: #666;
 
+  $border-radius: 4px;
   $round-border-radius: 32px;
   $circle-border-radius: 50%;
 
-  $default-background-color: #fff;
-  $default-border-color: #e0e0e0;
-  $default-color: #757575;
-  $default-color-hover: #29b6f6;
-  $default-color-active: #0288d1;
-  $default-background-color-disabled: #eceff1;
-  $default-color-disabled: #b0bec5;
+  $color-border-disabled: #e0e0e0;
+  $color-background-disabled: #eceff1;
+  $color-font-disabled: #b0bec5;
 
-  $primary-background-color: #039be5;
-  $primary-background-color-hover: $default-color-hover;
-  $primary-background-color-active: $default-color-active;
-
-  $success-background-color: #7cb342;
-  $success-background-color-hover: #9ccc65;
-  $success-background-color-active: #689f38;
-
-  $warning-background-color: #ffb300;
-  $warning-background-color-hover: #ffa726;
-  $warning-background-color-active: #f57c00;
-
-  $danger-background-color: #e53935;
-  $danger-background-color-hover: #ef5350;
-  $danger-background-color-active: #d32f2f;
-
-  $link-color: $primary-background-color;
-  $link-color-hover: $primary-background-color-hover;
-  $link-color-active: $primary-background-color-active;
-
-  $text-color: $default-color;
-
-  $button-kinds: primary, success, warning, danger;
-
-  $background-colors: $primary-background-color, $success-background-color, $warning-background-color, $danger-background-color;
-  $background-colors-hover: $primary-background-color-hover, $success-background-color-hover, $warning-background-color-hover, $danger-background-color-hover;
-  $background-colors-active: $primary-background-color-active, $success-background-color-active, $warning-background-color-active, $danger-background-color-active;
   @keyframes spin {
     0% { transform: rotate(0deg);}
     100% { transform: rotate(360deg);}
@@ -119,21 +105,21 @@
     background-color: $color;
     border-color: $color;
   }
+
   .halo-button {
     font-size: $font-size;
     height: $button-height;
     padding: 0 1em;
     border-radius: $border-radius;
-    border: 1px solid $border-color;
-    background: $button-bg;
+    border: 1px solid var(--color-border);
+    color: var(--color-font);
+    background-color: var(--color-background);
     display: inline-flex;
     justify-content: center;
     align-items: center;
     vertical-align: middle;
     cursor: pointer;
-    &:focus {
-      outline: none;
-    }
+    position: relative;
     > .content {
       order: 2;
     }
@@ -153,120 +139,83 @@
         order: 2;
       }
     }
-    &-default {
-      background-color: $default-background-color;
-      border-color: $default-border-color;
-      color: $default-color;
-      &:hover {
-        @include halo-button-default-color($default-color-hover);
-      }
-      &:focus {
-        @include halo-button-default-color($default-color-hover);
-      }
-      &:active {
-        @include halo-button-default-color($default-color-active);
-      }
+    &:focus {
+      outline: none;
     }
-    &-default.halo-button-loading {
-      &, &:hover, &:focus, &:active {
-        @include halo-button-default-color($default-color-hover);
-      }
+    &:after{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(100% + 2px);
+      height: calc(100% + 2px);
+      transition: all 0.2s;
+      border-radius: $border-radius;
+      margin-left: -1px;
+      margin-top: -1px;
+    }
+    &:hover:after,
+    &:focus:after {
+      background-color: rgba(#fff, 10%);
+    }
+    &:active:after {
+      background-color: rgba(#000, 10%);
     }
     &-link {
       background: none;
       border: none;
-      color: $link-color;
-      &:hover {
-        color: $link-color-hover;
+      color: var(--color-font);
+      &:hover:after, &:focus:after, &:active:after {
+        background: none;
       }
-      &:focus {
-        color: $link-color-hover;
-      }
-      &:active {
-        color: $link-color-active;
-      }
-    }
-    &-link.halo-button-loading {
-      &, &:hover, &:focus, &:active {
-        color: $link-color-hover;
+      &:hover, &:active {
+        text-decoration: underline;
       }
     }
     &-text {
       background: none;
       border: none;
-      color: $text-color;
-    }
-    @for $i from 1 through length($button-kinds) {
-      &-#{nth($button-kinds, $i)} {
-        @include halo-button-type-color(nth($background-colors, $i));
-        color: white;
-        &:hover {
-          @include halo-button-type-color(nth($background-colors-hover, $i));
-        }
-        &:focus {
-          @include halo-button-type-color(nth($background-colors-hover, $i));
-        }
-        &:active {
-          @include halo-button-type-color(nth($background-colors-active, $i));
-        }
-      }
-      &-#{nth($button-kinds, $i)}.halo-button-ghost {
-        color: nth($background-colors, $i);
-        &:hover {
-          color: nth($background-colors-hover, $i);
-        }
-        &:focus {
-          color: nth($background-colors-hover, $i);
-        }
-        &:active {
-          color: nth($background-colors-active, $i);
-        }
-      }
-
-      &-#{nth($button-kinds, $i)}.halo-button-loading {
-        &, &:hover, &:focus, &:active {
-          @include halo-button-type-color(nth($background-colors-hover, $i));
-        }
+      color: var(--color-font);
+      &:hover:after, &:focus:after, &:active:after {
+        background: none;
       }
     }
     &-round {
-      border-radius: 32px;
+      &, &:after {
+        border-radius: $round-border-radius;
+      }
     }
     &-circle {
-      border-radius: 50%;
       min-width: 32px;
       padding: 0;
       text-align: center;
+      &, &:after {
+        border-radius: $circle-border-radius;
+      }
     }
     &-ghost {
-      background: none;
-      &:hover {
-        background: none;
-      }
-      &:focus {
-        background: none;
-      }
-      &:active {
+      color: var(--color-border);
+      &, &:hover, &:focus, &:active {
         background: none;
       }
     }
     &-disabled {
       &, &:hover, &:focus, &:active {
         cursor: not-allowed;
-        border-color: $default-border-color !important;
-        background-color: $default-background-color-disabled !important;
-        color: $default-color-disabled !important;
+        border-color: $color-border-disabled;
+        background-color: $color-background-disabled;
+        color: $color-font-disabled;
       }
-    }
-    &-disabled.halo-button-ghost {
-      &, &:hover, &:focus, &:active {
-        background: none;
+      &.halo-button-link, &.halo-button-text {
+        &, &:hover, &:focus, &:active {
+          border: none;
+          background: none;
+        }
       }
-    }
-    &-disabled.halo-button-link, &-disabled.halo-button-text {
-      &, &:hover, &:focus, &:active {
-        border: none;
-        background: none;
+      &.halo-button-ghost {
+        &, &:hover, &:focus, &:active {
+          background: none;
+        }
       }
     }
   }

@@ -51,11 +51,9 @@
       height: 100%;
       flex-grow: 1;
       padding-top: 6em;
-      /*padding-bottom: 2em;*/
       @media (max-width: 500px) {
         padding-left: 0;
       }
-
     }
   }
   .content {

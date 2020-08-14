@@ -23,16 +23,19 @@
     display: inline-block;
     vertical-align: middle;
     > .halo-button {
-      border-radius: 0;
-
-      &:first-child {
+      &, &:after {
+        border-radius: 0;
+      }
+      &:first-child, &:first-child:after {
         border-top-left-radius: $border-radius;
         border-bottom-left-radius: $border-radius;
-
       }
-      &:last-child {
+      &:last-child, &:last-child:after {
         border-top-right-radius: $border-radius;
         border-bottom-right-radius: $border-radius;
+      }
+      &:not(:first-child) {
+        margin-left: -1px;
       }
       &:hover {
         position: relative;
@@ -42,11 +45,11 @@
     @each $shape, $border in (circle, $circle-border-radius),
       (round, $round-border-radius) {
       > .halo-button-#{$shape} {
-        &:first-child {
+        &:first-child, &:first-child:after {
           border-top-left-radius: $border;
           border-bottom-left-radius: $border;
         }
-        &:last-child {
+        &:last-child, &:last-child:after {
           border-top-right-radius: $border;
           border-bottom-right-radius: $border;
         }
