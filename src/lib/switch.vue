@@ -1,7 +1,10 @@
 <template>
-  <button class="halo-switch" :class="{'halo-switch-checked': curValue, 'halo-switch-disabled': disabled}" @click="toggle">
-    <span class="uncheckContent" v-if="uncheckContent && !value">{{uncheckContent}}</span>
-    <span class="checkedContent" v-if="checkedContent && value">{{checkedContent}}</span>
+  <button class="halo-switch"
+          :class="{'halo-switch-checked': curValue, 'halo-switch-disabled': disabled}"
+          :style="backgroundColor"
+          @click="toggle">
+    <span class="uncheckContent" v-if="uncheckContent && !curValue">{{uncheckContent}}</span>
+    <span class="checkedContent" v-if="checkedContent && curValue">{{checkedContent}}</span>
     <span class="circle"></span>
   </button>
 </template>
@@ -17,7 +20,9 @@
         default: false
       },
       uncheckContent: String,
-      checkedContent: String
+      checkedContent: String,
+      uncheckColor: String,
+      checkedColor: String
     },
     setup (props, context) {
       const curValue = ref(props.value || false)
@@ -26,7 +31,12 @@
         curValue.value = !curValue.value
         context.emit('update:value', !props.value)
       }
-      return {curValue, toggle}
+      const {uncheckColor, checkedColor} = props
+      const backgroundColor = ref({
+        '--color-background-uncheck': uncheckColor || '#e6e9fb',
+        '--color-background-checked': checkedColor || '#4d80e6',
+      })
+      return {curValue, toggle, backgroundColor}
     }
   })
   export default HaloSwitch
@@ -34,14 +44,12 @@
 <style lang="scss">
   $out-height: 22px;
   $in-height: $out-height - 4px;
-  $background-color-uncheck: #eceff1;
-  $background-color-checked: #039be5;
-  $background-color-disabled: #b0bec5;
+  $background-color-disabled: #b1bdf4;
   .halo-switch {
     height: $out-height;
     min-width: $out-height * 2;
     border: none;
-    background-color: $background-color-uncheck;
+    background-color: var(--color-background-uncheck);
     border-radius: $out-height / 2;
     position: relative;
     cursor: pointer;
@@ -59,13 +67,13 @@
       padding: 0 10px 0 26px;
       font-size: 12px;
       line-height: $out-height;
-      color: #757575;
+      color: var(--color-background-checked);
     }
     > .checkedContent {
       padding: 0 26px 0 10px;
       font-size: 12px;
       line-height: $out-height;
-      color: #fff;
+      color: var(--color-background-uncheck);
     }
     &:focus {
       outline: none;
@@ -74,7 +82,7 @@
       > .circle { width: $in-height + 4px; }
     }
     &-checked {
-      background-color: $background-color-checked;
+      background-color: var(--color-background-checked);
       > .circle {
         left: calc(100% - #{$in-height} - 2px);
       }
@@ -87,7 +95,7 @@
     }
     &-disabled {
       cursor: not-allowed;
-      background-color: $background-color-uncheck;
+      background-color: var(--color-background-uncheck);
       > .circle {
         background-color: $background-color-disabled;
       }
