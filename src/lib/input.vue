@@ -10,6 +10,7 @@
            v-bind="$attrs"
            :value="value"
            :type="type"
+           :class="{[`halo-input-${size}`]: size}"
            @input="$emit('update:value', $event.target.value)"
            @change="$emit('change', $event.target.value)"
            @blur="$emit('blur', $event.target.value)"
@@ -37,6 +38,9 @@
       type: {
         type: String,
         default: 'text'
+      },
+      size: {
+        type: String,
       }
       /*error: {
         type: String,
@@ -46,7 +50,9 @@
   export default HaloInput
 </script>
 <style lang="scss">
-  $height: 32px;
+  $height-input: 32px;
+  $height-input-large: 40px;
+  $height-input-small: 24px;
   $border-color: #dcdcdc;
   $border-color-hover: #4d80e6;
   $font-size: 14px;
@@ -61,11 +67,36 @@
       margin-right: .5em;
     }*/
     > input {
-      height: $height;
+      height: $height-input;
       border: 1px solid $border-color;
       border-radius: 4px;
       padding: 0 8px;
       font-size: inherit;
+      &::placeholder {
+        color: $border-color;
+        font-size: $font-size;
+        font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica,
+        "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB",
+        "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN",
+        "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti",
+        SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+      }
+      &::-webkit-input-placeholder {
+        color: $border-color;
+        font-size: $font-size;
+      }
+      &:-moz-placeholder {
+        color: $border-color;
+        font-size: $font-size;
+      }
+      &::-moz-placeholder {
+        color: $border-color;
+        font-size: $font-size;
+      }
+      &:-ms-input-placeholder {
+        color: $border-color;
+        font-size: $font-size;
+      }
       &:hover {
         border-color: $border-color-hover;
       }
@@ -93,6 +124,27 @@
       border-radius: 4px;
       padding: 8px;
       font-size: inherit;
+      font-family: inherit;
+      &::placeholder {
+        color: $border-color;
+        font-size: $font-size;
+      }
+      &::-webkit-input-placeholder {
+        color: $border-color;
+        font-size: $font-size;
+      }
+      &:-moz-placeholder {
+        color: $border-color;
+        font-size: $font-size;
+      }
+      &::-moz-placeholder {
+        color: $border-color;
+        font-size: $font-size;
+      }
+      &:-ms-input-placeholder {
+        color: $border-color;
+        font-size: $font-size;
+      }
       &:hover {
         border-color: $border-color-hover;
       }
@@ -115,12 +167,18 @@
         padding-right: 36px;
       }
     }
-    .halo-input-prefix {
+    > .halo-input-large {
+      height: $height-input-large;
+    }
+    > .halo-input-small {
+      height: $height-input-small;
+    }
+    > .halo-input-prefix {
       position: absolute;
       left: 10px;
       fill: currentColor;
     }
-    .halo-input-suffix {
+    > .halo-input-suffix {
       position: absolute;
       right: 10px;
       fill: $border-color;

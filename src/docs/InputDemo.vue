@@ -21,6 +21,17 @@
       </Example>
     </section>
     <section>
+      <H2>不同尺寸</H2>
+      <P>分为大、中、小三种尺寸，不设置该属性时默认为中等尺寸。</P>
+      <Example :code="sizeExampleCode">
+        <div>
+          <h-input size="small" placeholder="请输入"/>
+          <h-input placeholder="请输入"/>
+          <h-input size="large" placeholder="请输入"/>
+        </div>
+      </Example>
+    </section>
+    <section>
       <H2>文本域</H2>
       <Example :code="textareaExampleCode">
         <div>
@@ -74,6 +85,11 @@
           '<h-input placeholder="请输入" suffix-icon="ok"/>\n' +
           '<h-input placeholder="请输入" prefix-icon="tip" suffix-icon="ok"/>\n' +
           '```',
+        sizeExampleCode: '```html\n' +
+          '<h-input size="small" placeholder="请输入"/>\n' +
+          '<h-input placeholder="请输入"/>\n' +
+          '<h-input size="large" placeholder="请输入"/>\n' +
+          '```',
         textareaExampleCode: '```html\n' +
           '<h-input type="textarea" placeholder="请输入"/>\n' +
           '<h-input type="textarea" placeholder="请输入" rows="5"/>\n' +
@@ -89,6 +105,7 @@
             ['readonly', '原生属性，是否只读', 'Boolean', 'false', '-'],
             ['prefix-icon', '前缀图标', 'String', '-', '-'],
             ['suffix-icon', '后缀图标', 'String', '-', '-'],
+            ['size', '输入框尺寸', 'String', '-', 'large / small']
           ]
         }
       }
