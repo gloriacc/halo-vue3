@@ -6,7 +6,7 @@
       <H2>基础用法</H2>
       <Example :code="regularExampleCode">
         <div>
-          <h-input placeholder="请输入" v-model:value="value1"></h-input>
+          <h-input placeholder="请输入" v-model:value="value1"/>
         </div>
       </Example>
     </section>
@@ -14,9 +14,9 @@
       <H2>带图标的输入框</H2>
       <Example :code="iconExampleCode">
         <div>
-          <h-input placeholder="请输入" prefix-icon="tip"></h-input>
-          <h-input placeholder="请输入" suffix-icon="ok"></h-input>
-          <h-input placeholder="请输入" prefix-icon="tip" suffix-icon="ok"></h-input>
+          <h-input placeholder="请输入" prefix-icon="tip"/>
+          <h-input placeholder="请输入" suffix-icon="ok"/>
+          <h-input placeholder="请输入" prefix-icon="tip" suffix-icon="ok"/>
         </div>
       </Example>
     </section>
@@ -24,15 +24,15 @@
       <H2>文本域</H2>
       <Example :code="textareaExampleCode">
         <div>
-          <h-input type="textarea" placeholder="请输入"></h-input>
-          <h-input type="textarea" placeholder="请输入" rows="5"></h-input>
-          <h-input type="textarea" placeholder="请输入" rows="5" cols="10"></h-input>
+          <h-input type="textarea" placeholder="请输入"/>
+          <h-input type="textarea" placeholder="请输入" rows="5"/>
+          <h-input type="textarea" placeholder="请输入" rows="5" cols="10"/>
         </div>
       </Example>
     </section>
     <section class="inputApi">
       <H2>API</H2>
-      <Api :content="inputApi"></Api>
+      <Api :content="inputApi"/>
     </section>
   </article>
 </template>
@@ -52,13 +52,13 @@
       'h-input': Input,
     },
     setup () {
-      const value1 = ref('测试')
+      const value1 = ref('Halo')
       return {value1}
     },
     data () {
       return {
         regularExampleCode: '```html\n' +
-          '<h-input placeholder="请输入" v-model:value="value"></h-input>\n' +
+          '<h-input placeholder="请输入" v-model:value="value"/>\n' +
           '<script>\n' +
           '  export default {\n' +
           '    data() {\n' +
@@ -70,14 +70,14 @@
           '<\/script>\n' +
           '```',
         iconExampleCode: '```html\n' +
-          '<h-input placeholder="请输入" prefix-icon="tip"></h-input>\n' +
-          '<h-input placeholder="请输入" suffix-icon="ok"></h-input>\n' +
-          '<h-input placeholder="请输入" prefix-icon="tip" suffix-icon="ok"></h-input>\n' +
+          '<h-input placeholder="请输入" prefix-icon="tip"/>\n' +
+          '<h-input placeholder="请输入" suffix-icon="ok"/>\n' +
+          '<h-input placeholder="请输入" prefix-icon="tip" suffix-icon="ok"/>\n' +
           '```',
         textareaExampleCode: '```html\n' +
-          '<h-input type="textarea" placeholder="请输入"></h-input>\n' +
-          '<h-input type="textarea" placeholder="请输入" rows="5"></h-input>\n' +
-          '<h-input type="textarea" placeholder="请输入" rows="5" cols="10"></h-input>\n' +
+          '<h-input type="textarea" placeholder="请输入"/>\n' +
+          '<h-input type="textarea" placeholder="请输入" rows="5"/>\n' +
+          '<h-input type="textarea" placeholder="请输入" rows="5" cols="10"/>\n' +
           '```',
         inputApi: {
           head: ['属性', '说明', '类型', '默认值', '可选值'],
@@ -97,5 +97,7 @@
   export default InputDemo
 </script>
 <style lang="scss" scoped>
-
+  .halo-input {
+    margin-right: 2em;
+  }
 </style>

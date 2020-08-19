@@ -7,6 +7,7 @@
             ['halo-button-ghost']: ghost,
             ['halo-button-disabled']: disabled,
             ['halo-button-loading']: loading,
+            [`halo-button-${size}`]: size
           }"
           :style="colorStyle"
   >
@@ -59,6 +60,9 @@
         type: Boolean,
         default: false
       },
+      size: {
+        type: String,
+      }
     },
     setup (props) {
       const {color, kind} = props
@@ -82,8 +86,17 @@
   export default HaloButton
 </script>
 <style lang="scss">
-  $button-height: 32px;
-  $font-size: 14px;
+  $height-button: 32px;
+  $font-size-button: 14px;
+  $padding-button: 0 1em;
+
+  $height-button-large: 48px;
+  $font-size-button-large: 24px;
+  $padding-button-large: 0 1em;
+
+  $height-button-small: 24px;
+  $font-size-button-small: 12px;
+  $padding-button-small: 0 .4em;
 
   $border-radius: 4px;
   $round-border-radius: 32px;
@@ -107,9 +120,9 @@
   }
 
   .halo-button {
-    font-size: $font-size;
-    height: $button-height;
-    padding: 0 1em;
+    font-size: $font-size-button;
+    height: $height-button;
+    padding:  $padding-button;
     border-radius: $border-radius;
     border: 1px solid var(--color-border);
     color: var(--color-font);
@@ -217,6 +230,16 @@
           background: none;
         }
       }
+    }
+    &-large {
+      font-size: $font-size-button-large;
+      height: $height-button-large;
+      padding: $padding-button-large;
+    }
+    &-small {
+      font-size: $font-size-button-small;
+      height: $height-button-small;
+      padding: $padding-button-small;
     }
   }
 </style>

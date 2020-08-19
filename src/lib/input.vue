@@ -47,8 +47,8 @@
 </script>
 <style lang="scss">
   $height: 32px;
-  $border-color: #999;
-  $border-color-hover: #666;
+  $border-color: #dcdcdc;
+  $border-color-hover: #4d80e6;
   $font-size: 14px;
   $box-shadow-color: rgba(0,0,0,0.5);
   $red: #F1453D;
@@ -70,7 +70,36 @@
         border-color: $border-color-hover;
       }
       &:focus {
-        box-shadow: inset 0 1px 3px $box-shadow-color;
+        border-color: $border-color-hover;
+        box-shadow: 0 0 .4em 0 $border-color-hover;
+        transition: box-shadow 0.5s;
+        outline: none;
+      }
+      &[disabled], &[readonly] {
+        border-color: #bbb;
+        color: #bbb;
+        cursor: not-allowed;
+        background: none;
+      }
+      &:not(:first-child) {
+        padding-left: 30px;
+      }
+      &:not(:last-child) {
+        padding-right: 36px;
+      }
+    }
+    > textarea {
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      padding: 8px;
+      font-size: inherit;
+      &:hover {
+        border-color: $border-color-hover;
+      }
+      &:focus {
+        border-color: $border-color-hover;
+        box-shadow: 0 0 .4em 0 $border-color-hover;
+        transition: box-shadow 0.5s;
         outline: none;
       }
       &[disabled], &[readonly] {
@@ -89,10 +118,12 @@
     .halo-input-prefix {
       position: absolute;
       left: 10px;
+      fill: currentColor;
     }
     .halo-input-suffix {
       position: absolute;
       right: 10px;
+      fill: $border-color;
     }
    /* &.error {
       > input {

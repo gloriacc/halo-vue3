@@ -11,7 +11,7 @@
         <h-button kind="text">Text</h-button>
       </Example>
     </section>
-    <section class="regularExample">
+    <section class="colorExample">
       <H2>自定义颜色</H2>
       <P>可以给按钮设置颜色。</P>
       <Example :code="colorExampleCode">
@@ -83,6 +83,15 @@
         <h-button kind="text" icon-position="right" loading>Loading</h-button>
         <h-button shape="round" loading ghost disabled>Loading</h-button>
         <h-button :loading="loading" @click="loading = true">{{!loading ? 'Click me' : 'Loading'}}</h-button>
+      </Example>
+    </section>
+    <section class="sizeExample">
+      <H2>不同尺寸</H2>
+      <P>分为大、中、小三种尺寸，不设置该属性时默认为中等尺寸。</P>
+      <Example :code="sizeExampleCode">
+        <h-button size="small">Small</h-button>
+        <h-button>Normal</h-button>
+        <h-button size="large">Large</h-button>
       </Example>
     </section>
     <section class="groupExample">
@@ -188,6 +197,11 @@
           '<h-button shape="round" loading ghost disabled>Loading</h-button>\n' +
           '<h-button :loading="loading" @click="loading = true">{{!loading ? \'Click me\' : \'Loading\'}}</h-button>\n' +
           '```',
+        sizeExampleCode: '```html\n' +
+          '<h-button size="small">Small</h-button>\n' +
+          '<h-button>Normal</h-button>\n' +
+          '<h-button size="large">Large</h-button>\n' +
+          '```',
         groupExampleCode: '```html\n' +
           '<h-button-group>\n' +
           '  <h-button>上一页</h-button>\n' +
@@ -218,7 +232,8 @@
             ['icon', '图标类名', 'String', '-', '-'],
             ['icon-position', '图标位置', 'String', 'left', 'right'],
             ['disabled', '是否禁用按钮', 'Boolean', 'false', '-'],
-            ['loading', '是否处于加载中状态', 'Boolean', 'false', '-']
+            ['loading', '是否处于加载中状态', 'Boolean', 'false', '-'],
+            ['size', '按钮尺寸', 'String', '-', 'large / small']
           ]
         }
       }
