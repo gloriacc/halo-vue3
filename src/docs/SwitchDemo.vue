@@ -5,7 +5,7 @@
     <section>
       <H2>基础开关</H2>
       <Example :code="regularExampleCode">
-        <h-switch></h-switch>
+        <h-switch/>
         <h-switch v-model:value="isChecked"/>
       </Example>
     </section>
@@ -29,6 +29,17 @@
       <Example :code="textExampleCode">
         <h-switch uncheck-content="关" checked-content="开"/>
         <h-switch uncheck-content="关闭" checked-content="开启"/>
+      </Example>
+    </section>
+    <section>
+      <H2>不同尺寸</H2>
+      <P>分为大、中、小三种尺寸，不设置该属性时默认为中等尺寸。</P>
+      <Example :code="sizeExampleCode">
+        <h-switch size="small"/>
+        <h-switch/>
+        <h-switch size="large"/>
+        <h-switch size="small" uncheck-content="关" checked-content="开"/>
+        <h-switch size="large" uncheck-content="关闭" checked-content="开启"/>
       </Example>
     </section>
     <section class="switchApi">
@@ -82,6 +93,13 @@
           '<h-switch uncheck-content="关" checked-content="开"/>\n' +
           '<h-switch uncheck-content="关闭" checked-content="开启"/>\n' +
           '```',
+        sizeExampleCode: '```html\n' +
+          '<h-switch size="small"/>\n' +
+          '<h-switch/>\n' +
+          '<h-switch size="large"/>\n' +
+          '<h-switch size="small" uncheck-content="关" checked-content="开"/>\n' +
+          '<h-switch size="large" uncheck-content="关闭" checked-content="开启"/>\n' +
+          '```',
         switchApi: {
           head: ['属性', '说明', '类型', '默认值', '可选值'],
           body: [
@@ -91,6 +109,7 @@
             ['checked-color', '开关关闭时的背景颜色', 'String', '-', '十六进制值'],
             ['uncheck-content', '开关开启时的文字描述', 'String', '-', '-'],
             ['checked-content', '开关关闭时的文字描述', 'String', '-', '-'],
+            ['size', '开关尺寸', 'String', '-', 'large / small']
           ]
         }
       }
@@ -101,5 +120,6 @@
 <style lang="scss" scoped>
   .halo-switch {
     margin: .2em .5em;
+    vertical-align: bottom;
   }
 </style>
