@@ -56,12 +56,10 @@
   import Span from '../components/Span.vue';
   import Example from '../components/Example.vue';
   import Api from '../components/Api.vue';
-  import Switch from '../lib/switch.vue';
 
   const SwitchDemo = defineComponent({
     components: {
       H1, H2, P, Span, Example, Api,
-      'h-switch': Switch,
     },
     setup () {
       const isChecked = ref(true)

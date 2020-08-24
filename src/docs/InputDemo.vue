@@ -55,12 +55,10 @@
   import Span from '../components/Span.vue';
   import Example from '../components/Example.vue';
   import Api from '../components/Api.vue';
-  import Input from '../lib/input.vue';
 
   const InputDemo = defineComponent({
     components: {
       H1, H2, P, Span, Example, Api,
-      'h-input': Input,
     },
     setup () {
       const value1 = ref('Halo')

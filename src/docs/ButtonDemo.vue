@@ -132,13 +132,9 @@
   import Span from '../components/Span.vue'
   import Example from '../components/Example.vue'
   import Api from '../components/Api.vue'
-  import Button from '../lib/button.vue'
-  import ButtonGroup from '../lib/button-group.vue'
   const ButtonDemo = defineComponent({
     components: {
       H1, H2, P, Span, Example, Api,
-      'h-button': Button,
-      'h-button-group': ButtonGroup
     },
     data () {
       return {

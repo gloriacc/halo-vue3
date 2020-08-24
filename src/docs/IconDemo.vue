@@ -23,16 +23,14 @@
   import Span from '../components/Span.vue';
   import Example from '../components/Example.vue';
   import Api from '../components/Api.vue';
-  import Icon from '../lib/icon.vue';
   const IconDemo = defineComponent({
     components: {
       H1, H2, P, Span, Example, Api,
-      'h-icon': Icon,
     },
     data () {
       return {
         iconExampleCode: '```html\n' +
-          '<h-icon name="loading"></h-icon>\n' +
+          '<h-icon name="loading"/>\n' +
           '```',
         switchApi: {
           head: ['属性', '说明', '类型', '默认值', '可选值'],

@@ -4,11 +4,11 @@ import Doc from './views/Doc.vue';
 import DocDemo from './docs/DocDemo.vue';
 import SwitchDemo from './docs/SwitchDemo.vue';
 import ButtonDemo from './docs/ButtonDemo.vue';
-import DialogDemo from './docs/DialogDemo.vue';
 import TabsDemo from './docs/TabsDemo.vue';
 import InputDemo from './docs/InputDemo.vue';
 import LayoutDemo from './docs/LayoutDemo.vue';
 import IconDemo from './docs/IconDemo.vue';
+import ToastDemo from './docs/ToastDemo.vue';
 
 const history = createWebHashHistory()
 export const router = createRouter({
@@ -21,9 +21,10 @@ export const router = createRouter({
         {path: 'icon', component: IconDemo, meta: { title: 'Icon 图标' }},
         {path: 'switch', component: SwitchDemo, meta: { title: 'Switch 开关' }},
         {path: 'input', component: InputDemo, meta: { title: 'Input 输入框' }},
-        {path: 'layout', component: LayoutDemo, meta: { title: 'Layout' }},
-        {path: 'dialog', component: DialogDemo, meta: { title: 'Dialog' }},
-        {path: 'tabs', component: TabsDemo, meta: { title: 'Tabs' }},
+        // {path: 'layout', component: LayoutDemo, meta: { title: 'Layout' }},
+        // {path: 'dialog', component: DialogDemo, meta: { title: 'Dialog' }},
+        {path: 'tabs', component: TabsDemo, meta: { title: 'Tabs 标签页' }},
+        // {path: 'toast', component: ToastDemo, meta: { title: 'Toast 提示' }},
       ]
     }
   ]
