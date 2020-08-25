@@ -19,7 +19,6 @@ import {defineComponent, inject} from 'vue';
 </script>
 <style lang="scss">
   .halo-tabs-panel {
-    padding: 1em 0;
     display: none;
     &-active {
       display: block;

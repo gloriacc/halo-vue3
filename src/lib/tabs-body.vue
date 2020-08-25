@@ -11,5 +11,7 @@ import {defineComponent} from 'vue';
   export default HaloTabsBody
 </script>
 <style lang="scss">
-
+  .halo-tabs-body {
+    flex-grow: 1;
+  }
 </style>

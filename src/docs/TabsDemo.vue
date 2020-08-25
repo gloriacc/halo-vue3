@@ -5,7 +5,36 @@
     <section>
       <H2>基础标签页</H2>
       <Example :code="regularExampleCode">
-        <h-tabs v-model:selected-tab-name="selectTabName">
+        <h-tabs v-model:selected-tab-name="selectTabNameA">
+          <h-tabs-head>
+            <h-tabs-item name="a">a</h-tabs-item>
+            <h-tabs-item name="b">b</h-tabs-item>
+            <h-tabs-item name="c">c</h-tabs-item>
+          </h-tabs-head>
+          <h-tabs-body>
+            <h-tabs-panel name="a">page a</h-tabs-panel>
+            <h-tabs-panel name="b">page b</h-tabs-panel>
+            <h-tabs-panel name="c">page c</h-tabs-panel>
+          </h-tabs-body>
+        </h-tabs>
+      </Example>
+    </section>
+    <section>
+      <H2>方向</H2>
+      <Example :code="positionExampleCode">
+        <h-tabs v-model:selected-tab-name="selectTabNameB" :tab-position="tabPositionA">
+          <h-tabs-head>
+            <h-tabs-item name="a">a</h-tabs-item>
+            <h-tabs-item name="b">b</h-tabs-item>
+            <h-tabs-item name="c">ccccccc</h-tabs-item>
+          </h-tabs-head>
+          <h-tabs-body>
+            <h-tabs-panel name="a">page a</h-tabs-panel>
+            <h-tabs-panel name="b">page b</h-tabs-panel>
+            <h-tabs-panel name="c">page c</h-tabs-panel>
+          </h-tabs-body>
+        </h-tabs>
+        <h-tabs v-model:selected-tab-name="selectTabNameB" :tab-position="tabPositionB">
           <h-tabs-head>
             <h-tabs-item name="a">a</h-tabs-item>
             <h-tabs-item name="b">b</h-tabs-item>
@@ -39,7 +68,10 @@
     },
     data () {
       return {
-        selectTabName: 'a',
+        selectTabNameA: 'a',
+        selectTabNameB: 'b',
+        tabPositionA: 'left',
+        tabPositionB: 'right',
         regularExampleCode: '```html\n' +
             '<h-tabs v-model:selected-tab-name="selectTabName">\n' +
             '  <h-tabs-head>\n' +
@@ -54,6 +86,7 @@
             '  </h-tabs-body>\n' +
             '</h-tabs>\n' +
             '```',
+        positionExampleCode: '',
         tabsApi: ''
       }
     },

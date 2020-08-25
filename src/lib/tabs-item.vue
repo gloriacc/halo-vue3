@@ -30,9 +30,9 @@ import {defineComponent, inject} from 'vue';
     flex-shrink: 0;
     margin: 0 1em;
     cursor: pointer;
-    height: 100%;
     display: flex;
     align-items: center;
+    height: 40px;
     &:first-child {
       margin-left: 0;
     }
@@ -41,7 +41,6 @@ import {defineComponent, inject} from 'vue';
     }
     &-active {
       color: $blue;
-      font-weight: bold;
     }
     &.disabled {
       color: $disabled-text-color;

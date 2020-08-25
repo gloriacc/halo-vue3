@@ -1,5 +1,5 @@
 <template>
-  <div class="halo-tabs">
+  <div class="halo-tabs" :class="{[`halo-tabs-${tabPosition}`]: tabPosition}">
     <slot></slot>
   </div>
 </template>
@@ -9,6 +9,12 @@
     name: 'HaloTabs',
     props: {
       selectedTabName: String,
+      tabPosition: {
+        type: String,
+        validator (value: string) {
+          return ['right', 'left'].includes(value)
+        }
+      }
     },
     setup (props, context) {
       const tabName = ref(props.selectedTabName)
@@ -16,6 +22,10 @@
         context.emit('update:selected-tab-name', tabName.value)
       })
       provide('tabName', tabName)
+      console.log(props.tabPosition);
+      if (!props.tabPosition) return
+      const tabPosition = ref(props.tabPosition)
+      provide('tabPosition', tabPosition)
 
     },
     mounted() {
@@ -27,5 +37,14 @@
   export default HaloTabs
 </script>
 <style lang="scss">
-
+  .halo-tabs {
+    &-left {
+      display: flex;
+      flex-direction: row;
+    }
+    &-right {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
 </style>
