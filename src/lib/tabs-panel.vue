@@ -1,5 +1,5 @@
 <template>
-  <div class="halo-tabs-panel" :class="{['halo-tabs-panel-active']: name === tabName}">
+  <div class="halo-tabs-panel" :class="{['halo-tabs-panel-active']: name === tabName}" :data-name="name">
     <slot></slot>
   </div>
 </template>
@@ -19,6 +19,7 @@ import {defineComponent, inject} from 'vue';
 </script>
 <style lang="scss">
   .halo-tabs-panel {
+    padding: 1em 0;
     display: none;
     &-active {
       display: block;

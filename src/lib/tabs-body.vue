@@ -4,13 +4,9 @@
   </div>
 </template>
 <script lang="ts">
-import {defineComponent, inject} from 'vue';
+import {defineComponent} from 'vue';
   const HaloTabsBody = defineComponent({
     name: 'HaloTabsBody',
-    setup () {
-      // const selectedTabName = inject('selectedTabName')
-      // return {selectedTabName}
-    }
   })
   export default HaloTabsBody
 </script>

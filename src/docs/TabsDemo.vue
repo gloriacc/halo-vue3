@@ -5,17 +5,16 @@
     <section>
       <H2>基础标签页</H2>
       <Example :code="regularExampleCode">
-        {{selectTabName}}
-        <h-tabs v-model:selected-tab-name="selectTabName" @change="onChange">
+        <h-tabs v-model:selected-tab-name="selectTabName">
           <h-tabs-head>
             <h-tabs-item name="a">a</h-tabs-item>
             <h-tabs-item name="b">b</h-tabs-item>
             <h-tabs-item name="c">c</h-tabs-item>
           </h-tabs-head>
           <h-tabs-body>
-            <h-tabs-panel name="a">aa</h-tabs-panel>
-            <h-tabs-panel name="b">bb</h-tabs-panel>
-            <h-tabs-panel name="c">cc</h-tabs-panel>
+            <h-tabs-panel name="a">page a</h-tabs-panel>
+            <h-tabs-panel name="b">page b</h-tabs-panel>
+            <h-tabs-panel name="c">page c</h-tabs-panel>
           </h-tabs-body>
         </h-tabs>
       </Example>
@@ -40,16 +39,24 @@
     },
     data () {
       return {
-        selectTabName: 'b',
-        regularExampleCode: '',
+        selectTabName: 'a',
+        regularExampleCode: '```html\n' +
+            '<h-tabs v-model:selected-tab-name="selectTabName">\n' +
+            '  <h-tabs-head>\n' +
+            '    <h-tabs-item name="a">a</h-tabs-item>\n' +
+            '    <h-tabs-item name="b">b</h-tabs-item>\n' +
+            '    <h-tabs-item name="c">c</h-tabs-item>\n' +
+            '  </h-tabs-head>\n' +
+            '  <h-tabs-body>\n' +
+            '    <h-tabs-panel name="a">page a</h-tabs-panel>\n' +
+            '    <h-tabs-panel name="b">page b</h-tabs-panel>\n' +
+            '    <h-tabs-panel name="c">page c</h-tabs-panel>\n' +
+            '  </h-tabs-body>\n' +
+            '</h-tabs>\n' +
+            '```',
         tabsApi: ''
       }
     },
-    methods: {
-      onChange(tab) {
-
-      }
-    }
   })
   export default TabsDemo
 </script>

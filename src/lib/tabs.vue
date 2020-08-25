@@ -12,13 +12,17 @@
     },
     setup (props, context) {
       const tabName = ref(props.selectedTabName)
-      // context.emit('update:selected-tab-name', 'c')
       watch(tabName, (newValue, oldValue) => {
         context.emit('update:selected-tab-name', tabName.value)
       })
       provide('tabName', tabName)
 
-    }
+    },
+    mounted() {
+      if (this.$el.children.length === 0) {
+        console.warn('tabs 缺少子组件')
+      }
+    },
   })
   export default HaloTabs
 </script>
