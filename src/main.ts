@@ -21,6 +21,7 @@ import TabsHead from './lib/tabs-head.vue'
 import TabsBody from './lib/tabs-body.vue'
 import TabsItem from './lib/tabs-item.vue'
 import TabsPanel from './lib/tabs-panel.vue'
+import Dialog from './lib/dialog.vue'
 
 const app = createApp(App)
 
@@ -39,6 +40,7 @@ app.component('h-tabs-head', TabsHead)
 app.component('h-tabs-body', TabsBody)
 app.component('h-tabs-item', TabsItem)
 app.component('h-tabs-panel', TabsPanel)
+app.component('h-dialog', Dialog)
 
 app.directive('highlight',(el) => {
   let blocks = el.querySelectorAll('pre code');

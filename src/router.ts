@@ -9,6 +9,7 @@ import InputDemo from './docs/InputDemo.vue';
 import LayoutDemo from './docs/LayoutDemo.vue';
 import IconDemo from './docs/IconDemo.vue';
 import ToastDemo from './docs/ToastDemo.vue';
+import DialogDemo from './docs/DialogDemo.vue';
 
 const history = createWebHashHistory()
 export const router = createRouter({
@@ -22,7 +23,7 @@ export const router = createRouter({
         {path: 'switch', component: SwitchDemo, meta: { title: 'Switch 开关' }},
         {path: 'input', component: InputDemo, meta: { title: 'Input 输入框' }},
         // {path: 'layout', component: LayoutDemo, meta: { title: 'Layout' }},
-        // {path: 'dialog', component: DialogDemo, meta: { title: 'Dialog' }},
+        {path: 'dialog', component: DialogDemo, meta: { title: 'Dialog' }},
         {path: 'tabs', component: TabsDemo, meta: { title: 'Tabs 标签页' }},
         // {path: 'toast', component: ToastDemo, meta: { title: 'Toast 提示' }},
       ]
