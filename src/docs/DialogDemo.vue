@@ -5,7 +5,14 @@
     <section>
       <H2>基础</H2>
       <Example :code="regularExampleCode">
-        <h-dialog v-model:visible="isVisible" :ok="ok" :cancel="cancel"/>
+        <h-dialog v-model:visible="isVisible" :ok="ok" :cancel="cancel">
+          <template v-slot:title>
+            <strong>Message</strong>
+          </template>
+          <template v-slot:content>
+            <p>Dialog Content</p>
+          </template>
+        </h-dialog>
         <h-button @click="toggle">open</h-button>
       </Example>
     </section>

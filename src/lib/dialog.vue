@@ -3,10 +3,12 @@
     <div class="halo-dialog-overlay" @click="onClickOverlay"></div>
     <div class="halo-dialog-wrapper">
       <div class="halo-dialog">
-        <header>title<span class="halo-dialog-close" @click="close"></span></header>
+        <header>
+          <slot name="title"/>
+          <span class="halo-dialog-close" @click="close"></span>
+        </header>
         <main>
-          <p>a</p>
-          <p>b</p>
+          <slot name="content"/>
         </main>
         <footer>
           <h-button @click="ok">OK</h-button>
