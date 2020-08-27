@@ -1,5 +1,7 @@
 <template>
-  <div class="halo-tabs" :class="{[`halo-tabs-${tabPosition}`]: tabPosition}">
+  <div class="halo-tabs"
+       :class="{[`halo-tabs-${position}`]: position,
+              [`halo-tabs-${type}`]: type}">
     <slot></slot>
   </div>
 </template>
@@ -9,24 +11,25 @@
     name: 'HaloTabs',
     props: {
       selectedTabName: String,
-      tabPosition: {
+      position: {
         type: String,
         validator (value: string) {
           return ['right', 'left'].includes(value)
         }
-      }
+      },
+      type: String
     },
     setup (props, context) {
-      const tabName = ref(props.selectedTabName)
+      const {selectedTabName, position, type} = props
+      const tabName = ref(selectedTabName)
       watch(tabName, (newValue, oldValue) => {
         context.emit('update:selected-tab-name', tabName.value)
       })
       provide('tabName', tabName)
-      console.log(props.tabPosition);
-      if (!props.tabPosition) return
-      const tabPosition = ref(props.tabPosition)
+      const tabType = ref(type)
+      provide('tabType', tabType)
+      const tabPosition = ref(position)
       provide('tabPosition', tabPosition)
-
     },
     mounted() {
       if (this.$el.children.length === 0) {
@@ -37,6 +40,7 @@
   export default HaloTabs
 </script>
 <style lang="scss">
+  $border-color: #dcdcdc;
   .halo-tabs {
     &-left {
       display: flex;
@@ -45,6 +49,9 @@
     &-right {
       display: flex;
       flex-direction: row-reverse;
+    }
+    &-card {
+      border: 1px solid $border-color;
     }
   }
 </style>

@@ -1,5 +1,7 @@
 <template>
-  <div class="halo-tabs-head" :class="{[`halo-tabs-head-${tabPosition}`]: tabPosition}">
+  <div class="halo-tabs-head"
+       :class="{[`halo-tabs-head-${tabPosition}`]: tabPosition,
+       [`halo-tabs-head-${tabType}`]: tabType}">
     <slot></slot>
 <!--    <div class="split-line"></div>-->
     <div class="active-line" ref="line"></div>
@@ -11,7 +13,8 @@ import {defineComponent, inject} from 'vue';
     name: 'HaloTabsHead',
     setup (props) {
       const tabPosition = inject('tabPosition')
-      return {tabPosition}
+      const tabType = inject('tabType')
+      return {tabPosition, tabType}
     },
     mounted() {
       this.onItemActive()
@@ -88,6 +91,22 @@ import {defineComponent, inject} from 'vue';
       }
       > .halo-tabs-item:first-child, &:last-child {
         margin: 0 1em;
+      }
+    }
+    &-card {
+      border-bottom: none;
+      margin-bottom: 0;
+      background-color: #eee;
+      > .halo-tabs-item {
+        padding: 0 1em;
+        border-bottom: none;
+        margin: 0;
+        &-active {
+          background-color: #fff;
+        }
+      }
+      > .active-line {
+        background-color: #fff;
       }
     }
   }
