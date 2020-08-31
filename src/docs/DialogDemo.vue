@@ -3,23 +3,49 @@
     <H1>Dialog</H1>
     <P>Dialog</P>
     <section>
-      <H2>基础</H2>
+      <H2>基础用法</H2>
       <Example :code="regularExampleCode">
-        <h-dialog v-model:visible="isVisible" :ok="ok" :cancel="cancel">
-          <template v-slot:title>
+        <h-dialog v-model:visible="isVisible1" title="提示" :ok="ok1" :cancel="cancel1">
+          <p>Dialog Content</p>
+        </h-dialog>
+        <h-button @click="toggle1">open</h-button>
+      </Example>
+    </section>
+    <section>
+      <H2>自定义 title</H2>
+      <Example :code="regularExampleCode">
+        <h-dialog v-model:visible="isVisible2">
+          <template v-slot:header>
             <strong>Message</strong>
           </template>
-          <template v-slot:content>
-            <p>Dialog Content</p>
+          <p>Dialog Content</p>
+        </h-dialog>
+        <h-button @click="toggle2">open</h-button>
+      </Example>
+    </section>
+    <section>
+      <H2>自定义 footer</H2>
+      <Example :code="regularExampleCode">
+        <h-dialog v-model:visible="isVisible3">
+          <p>是否删除？</p>
+          <template v-slot:footer>
+            <h-button color="none" @click="cancel3">取消</h-button>
+            <h-button @click="ok3">删除</h-button>
           </template>
         </h-dialog>
-        <h-button @click="toggle">open</h-button>
+        <h-button @click="toggle3">open</h-button>
+      </Example>
+    </section>
+    <section>
+      <H2>useDialog</H2>
+      <Example :code="regularExampleCode">
+        <h-button @click="onShowDialog">open</h-button>
       </Example>
     </section>
   </article>
 </template>
 <script lang="ts">
-import {defineComponent, ref} from 'vue';
+import {defineComponent, ref, h} from 'vue';
 import H1 from '../components/H1.vue';
 import H2 from '../components/H2.vue';
 import P from '../components/P.vue';
@@ -27,22 +53,56 @@ import Span from '../components/Span.vue';
 import Example from '../components/Example.vue';
 import Api from '../components/Api.vue';
 
+import {useDialog} from '../lib/hooks/useDialog'
+import Button from '../lib/button.vue';
+
 const DialogDemo = defineComponent({
   components: {
     H1, H2, P, Span, Example, Api,
+    Button
   },
   setup() {
-    const isVisible = ref(false)
-    const toggle = () => {
-      isVisible.value = !isVisible.value
+    const isVisible1 = ref(false)
+    const isVisible2 = ref(false)
+    const isVisible3 = ref(false)
+    const toggle1 = () => {
+      isVisible1.value = !isVisible1.value
     }
-    const ok = () => {
-      console.log(ok);
+    const toggle2 = () => {
+      isVisible2.value = !isVisible2.value
     }
-    const cancel = () => {
-      console.log(cancel);
+    const toggle3 = () => {
+      isVisible3.value = !isVisible3.value
     }
-    return {isVisible, toggle, ok, cancel}
+    const ok1 = () => {
+      alert('确定')
+    }
+    const cancel1 = () => {
+      alert('取消')
+    }
+    const ok3 = () => {
+      alert('确定')
+      isVisible3.value = !isVisible3.value
+    }
+    const cancel3 = () => {
+      alert('取消')
+      isVisible3.value = !isVisible3.value
+    }
+    const {showDialog} = useDialog()
+    const onShowDialog = () => {
+      showDialog({
+        title: '警告',
+        header: () => h('strong', {}, '标题'),
+        content: () => h('p', {}, '你好'),
+        ok() {
+          alert('ok')
+        },
+        cancel() {
+          alert('cancel')
+        }
+      })
+    }
+    return {isVisible1, isVisible2, isVisible3, toggle1, toggle2, toggle3, ok1, cancel1, ok3, cancel3, onShowDialog}
   },
   data() {
     return {

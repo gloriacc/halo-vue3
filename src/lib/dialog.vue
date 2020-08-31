@@ -1,28 +1,38 @@
 <template>
   <template v-if="visible">
-    <div class="halo-dialog-overlay" @click="onClickOverlay"></div>
-    <div class="halo-dialog-wrapper">
-      <div class="halo-dialog">
-        <header>
-          <slot name="title"/>
-          <span class="halo-dialog-close" @click="close"></span>
-        </header>
-        <main>
-          <slot name="content"/>
-        </main>
-        <footer>
-          <h-button @click="ok">OK</h-button>
-          <h-button color="none" @click="cancel">Cancel</h-button>
-        </footer>
+    <Teleport to="body">
+      <div class="halo-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="halo-dialog-wrapper">
+        <div class="halo-dialog">
+          <header>
+            <slot name="header"><span>{{title}}</span></slot>
+            <span class="halo-dialog-close" @click="close"></span>
+          </header>
+          <main>
+            <slot/>
+          </main>
+          <footer>
+            <slot name="footer">
+              <Button color="none" @click="cancel">取消</Button>
+              <Button @click="ok">确定</Button>
+            </slot>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 <script lang="ts">
   import {defineComponent} from 'vue';
+  import Button from './button.vue';
   const HaloDialog = defineComponent({
     name: 'HaloDialog',
+    components: {Button},
     props: {
+      title: {
+        type: String,
+        default: '提示'
+      },
       visible: {
         type: Boolean,
         default: false
@@ -49,7 +59,7 @@
         }
       }
       const cancel = () => {
-        context.emit('cancel')
+        props.cancel?.()
         close()
       }
       return {close, onClickOverlay, ok, cancel}
