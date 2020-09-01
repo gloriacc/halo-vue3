@@ -88,18 +88,13 @@ const DialogDemo = defineComponent({
       alert('取消')
       isVisible3.value = !isVisible3.value
     }
-    const {showDialog} = useDialog()
+    const {showDialog, hideDialog} = useDialog()
     const onShowDialog = () => {
       showDialog({
         title: '警告',
-        header: () => h('strong', {}, '标题'),
-        content: () => h('p', {}, '你好'),
-        ok() {
-          alert('ok')
-        },
-        cancel() {
-          alert('cancel')
-        }
+        header: h('strong', {}, '标题'),
+        content: h('p', {}, '你好'),
+        footer: h(Button, {'onClick': () => {hideDialog()}}, {default: () => '确定'}),
       })
     }
     return {isVisible1, isVisible2, isVisible3, toggle1, toggle2, toggle3, ok1, cancel1, ok3, cancel3, onShowDialog}
