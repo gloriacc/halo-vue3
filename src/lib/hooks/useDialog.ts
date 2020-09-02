@@ -2,8 +2,8 @@ import Dialog from '../dialog.vue'
 import {createApp, h, RendererElement, App} from 'vue'
 interface DialogOptions {
   title?: string,
-  header?: RendererElement,
-  content: RendererElement,
+  header?: RendererElement | string,
+  content: RendererElement | string,
   footer?: RendererElement,
   ok?: Function,
   cancel?: Function,

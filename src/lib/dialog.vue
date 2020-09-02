@@ -94,7 +94,6 @@ $border-color: #d9d9d9;
   }
   >header {
     padding: 12px 16px;
-    border-bottom: 1px solid $border-color;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -104,7 +103,6 @@ $border-color: #d9d9d9;
     padding: 12px 16px;
   }
   >footer {
-    border-top: 1px solid $border-color;
     padding: 12px 16px;
     text-align: right;
     > button {

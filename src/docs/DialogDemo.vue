@@ -6,28 +6,28 @@
       <H2>基础用法</H2>
       <Example :code="regularExampleCode">
         <h-dialog v-model:visible="isVisible1" title="提示" :ok="ok1" :cancel="cancel1">
-          <p>Dialog Content</p>
+          你好
         </h-dialog>
         <h-button @click="toggle1">open</h-button>
       </Example>
     </section>
     <section>
       <H2>自定义 title</H2>
-      <Example :code="regularExampleCode">
+      <Example :code="titleExampleCode">
         <h-dialog v-model:visible="isVisible2">
           <template v-slot:header>
-            <strong>Message</strong>
+            <strong>消息</strong>
           </template>
-          <p>Dialog Content</p>
+          你好
         </h-dialog>
         <h-button @click="toggle2">open</h-button>
       </Example>
     </section>
     <section>
       <H2>自定义 footer</H2>
-      <Example :code="regularExampleCode">
+      <Example :code="footerExampleCode">
         <h-dialog v-model:visible="isVisible3">
-          <p>是否删除？</p>
+          是否删除？
           <template v-slot:footer>
             <h-button color="none" @click="cancel3">取消</h-button>
             <h-button @click="ok3">删除</h-button>
@@ -38,7 +38,7 @@
     </section>
     <section>
       <H2>useDialog</H2>
-      <Example :code="regularExampleCode">
+      <Example :code="useExampleCode">
         <h-button @click="onShowDialog">open</h-button>
       </Example>
     </section>
@@ -93,30 +93,114 @@ const DialogDemo = defineComponent({
       showDialog({
         title: '警告',
         header: h('strong', {}, '标题'),
-        content: h('p', {}, '你好'),
+        content: '你好',
         footer: h(Button, {'onClick': () => {hideDialog()}}, {default: () => '确定'}),
       })
     }
-    return {isVisible1, isVisible2, isVisible3, toggle1, toggle2, toggle3, ok1, cancel1, ok3, cancel3, onShowDialog}
+    return {
+      isVisible1,
+      isVisible2,
+      isVisible3,
+      toggle1,
+      toggle2,
+      toggle3,
+      ok1,
+      cancel1,
+      ok3,
+      cancel3,
+      onShowDialog
+    }
   },
   data() {
     return {
       regularExampleCode: '```html\n' +
-          '<h-tabs v-model:selected-tab-name="selectTabName">\n' +
-          '  <h-tabs-head>\n' +
-          '    <h-tabs-item name="a">a</h-tabs-item>\n' +
-          '    <h-tabs-item name="b">b</h-tabs-item>\n' +
-          '    <h-tabs-item name="c">c</h-tabs-item>\n' +
-          '  </h-tabs-head>\n' +
-          '  <h-tabs-body>\n' +
-          '    <h-tabs-panel name="a">page a</h-tabs-panel>\n' +
-          '    <h-tabs-panel name="b">page b</h-tabs-panel>\n' +
-          '    <h-tabs-panel name="c">page c</h-tabs-panel>\n' +
-          '  </h-tabs-body>\n' +
-          '</h-tabs>\n' +
+          '<h-dialog v-model:visible="isVisible" title="提示" :ok="ok" :cancel="cancel">\n' +
+          '  你好\n' +
+          '</h-dialog>\n' +
+          '<script>\n' +
+          '  export default {\n' +
+          '    data() {\n' +
+          '      return {\n' +
+          '        isVisible: false\n' +
+          '      }\n' +
+          '    },\n' +
+          '    methods: {\n' +
+          '      ok() {\n' +
+          '        alert(\'确定\')\n' +
+          '      },\n' +
+          '      cancel() {\n' +
+          '        alert(\'取消\')\n' +
+          '      }\n' +
+          '    }\n' +
+          '  };\n' +
+          '<\/script>\n' +
           '```',
-      positionExampleCode: '',
-      cardExampleCode: '',
+      titleExampleCode: '```html\n' +
+          '<h-dialog v-model:visible="isVisible">\n' +
+          '  <template v-slot:header>\n' +
+          '    <strong>消息</strong>\n' +
+          '  </template>\n' +
+          '  你好\n' +
+          '</h-dialog>\n' +
+          '<script>\n' +
+          '  export default {\n' +
+          '    data() {\n' +
+          '      return {\n' +
+          '        isVisible: false\n' +
+          '      }\n' +
+          '    }\n' +
+          '  };\n' +
+          '<\/script>\n' +
+          '```',
+      footerExampleCode: '```html\n' +
+          '<h-dialog v-model:visible="isVisible">\n' +
+          '  是否删除？\n' +
+          '  <template v-slot:footer>\n' +
+          '    <h-button color="none" @click="cancel">取消</h-button>\n' +
+          '    <h-button @click="ok">删除</h-button>\n' +
+          '  </template>\n' +
+          '</h-dialog>\n' +
+          '<script>\n' +
+          '  export default {\n' +
+          '    data() {\n' +
+          '      return {\n' +
+          '        isVisible: false\n' +
+          '      }\n' +
+          '    },\n' +
+          '    methods: {\n' +
+          '      ok() {\n' +
+          '        alert(\'确定\')\n' +
+          '      },\n' +
+          '      cancel() {\n' +
+          '        alert(\'取消\')\n' +
+          '      }\n' +
+          '    }\n' +
+          '  };\n' +
+          '<\/script>\n' +
+          '```',
+      useExampleCode: '```html\n' +
+          '<h-button @click="onShowDialog">\n' +
+          '  open\n' +
+          '</h-button>\n' +
+          '<script>\n' +
+          '  import {h} from \'vue\'\n' +
+          '  import {useDialog} from \'../lib/hooks/useDialog\'\n' +
+          '  export default {\n' +
+          '    setup() {\n' +
+          '      const {showDialog, hideDialog} = useDialog()\n' +
+          '      const onShowDialog = () => {\n' +
+          '        showDialog({\n' +
+          '          title: \'警告\',\n' +
+          '          header: h(\'strong\', {}, \'标题\'),\n' +
+          '          content: \'你好\',\n' +
+          '          footer: h(Button, {\'onClick\': () => {hideDialog()}}, {default: () => \'确定\'}),\n' +
+          '        })\n' +
+          '      }\n' +
+          '      return {onShowDialog}\n' +
+          '    }\n' +
+          '  };\n' +
+          '<\/script>\n' +
+          '```',
       tabsApi: ''
     }
   },
