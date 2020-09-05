@@ -19,8 +19,19 @@
   </button>
 </template>
 <script lang="ts">
-  import {defineComponent, ref} from 'vue'
-  import Icon from './icon.vue'
+import {defineComponent, ref} from 'vue';
+import Icon from './icon.vue'
+interface ButtonProps {
+  kind?: string,
+  color?: string,
+  shape?: string,
+  ghost: boolean,
+  icon?: string,
+  iconPosition: string,
+  disabled: boolean,
+  loading: boolean,
+  size?: string
+}
   const HaloButton = defineComponent({
     name: 'HaloButton',
     components: {'h-icon': Icon},
@@ -28,6 +39,7 @@
       kind: {
         type: String,
         validate (value: string) {
+          // @ts-ignore
           return ['link', 'text'].includes(value);
         }
       },
@@ -44,7 +56,7 @@
         type: Boolean,
         default: false
       },
-      icon: {},
+      icon: String,
       iconPosition: {
         type: String,
         default: 'left',
@@ -64,7 +76,7 @@
         type: String,
       }
     },
-    setup (props) {
+    setup (props: ButtonProps) {
       const {color, kind} = props
       let colorStyle
       if (color === 'none') {
