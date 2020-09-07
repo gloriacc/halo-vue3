@@ -1,6 +1,5 @@
 import {mount} from '@vue/test-utils';
 import Input from '../lib/input.vue'
-import Switch from '../lib/switch.vue';
 
 describe('Switch', () => {
   it('could render', () => {
