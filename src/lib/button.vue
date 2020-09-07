@@ -11,8 +11,8 @@
           }"
           :style="colorStyle"
   >
-    <h-icon class="icon" v-if="icon && !loading" :name="icon"></h-icon>
-    <h-icon class="icon loading" v-if="loading" name="loading"></h-icon>
+    <Icon class="icon" v-if="icon && !loading" :name="icon"></Icon>
+    <Icon class="icon loading" v-if="loading" name="loading"></Icon>
     <div class="content" v-if="(!icon && !loading) || (shape !== 'circle')">
       <slot></slot>
     </div>
@@ -27,20 +27,19 @@ interface ButtonProps {
   shape?: string,
   ghost: boolean,
   icon?: string,
-  iconPosition: string,
+  iconPosition?: string,
   disabled: boolean,
   loading: boolean,
   size?: string
 }
   const HaloButton = defineComponent({
     name: 'HaloButton',
-    components: {'h-icon': Icon},
+    components: {Icon},
     props: {
       kind: {
         type: String,
         validate (value: string) {
-          // @ts-ignore
-          return ['link', 'text'].includes(value);
+          return value === 'link' || value === 'text';
         }
       },
       color: {
@@ -59,7 +58,6 @@ interface ButtonProps {
       icon: String,
       iconPosition: {
         type: String,
-        default: 'left',
         validate (value: string) {
           return value === 'left' || value === 'right';
         }
@@ -74,6 +72,9 @@ interface ButtonProps {
       },
       size: {
         type: String,
+        validate (value: string) {
+          return value === 'large' || value === 'small';
+        }
       }
     },
     setup (props: ButtonProps) {
