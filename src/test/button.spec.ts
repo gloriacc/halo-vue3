@@ -1,7 +1,7 @@
 import {mount} from '@vue/test-utils';
 import Button from '../lib/button.vue'
 
-describe('Button.vue', () => {
+describe('Button', () => {
   it('could render', () => {
     const wrapper = mount(Button)
     expect(wrapper.html()).not.toBeUndefined()
