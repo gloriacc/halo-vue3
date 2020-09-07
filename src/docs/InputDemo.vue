@@ -10,16 +10,16 @@
         </div>
       </Example>
     </section>
-    <section>
-      <H2>带图标的输入框</H2>
-      <Example :code="iconExampleCode">
-        <div>
-          <h-input placeholder="请输入" prefix-icon="tip"/>
-          <h-input placeholder="请输入" suffix-icon="ok"/>
-          <h-input placeholder="请输入" prefix-icon="tip" suffix-icon="ok"/>
-        </div>
-      </Example>
-    </section>
+<!--    <section>-->
+<!--      <H2>带图标的输入框</H2>-->
+<!--      <Example :code="iconExampleCode">-->
+<!--        <div>-->
+<!--          <h-input placeholder="请输入" prefix-icon="tip"/>-->
+<!--          <h-input placeholder="请输入" suffix-icon="ok"/>-->
+<!--          <h-input placeholder="请输入" prefix-icon="tip" suffix-icon="ok"/>-->
+<!--        </div>-->
+<!--      </Example>-->
+<!--    </section>-->
     <section>
       <H2>不同尺寸</H2>
       <P>分为大、中、小三种尺寸，不设置该属性时默认为中等尺寸。</P>
@@ -78,11 +78,11 @@
           '  };\n' +
           '<\/script>\n' +
           '```',
-        iconExampleCode: '```html\n' +
-          '<h-input placeholder="请输入" prefix-icon="tip"/>\n' +
-          '<h-input placeholder="请输入" suffix-icon="ok"/>\n' +
-          '<h-input placeholder="请输入" prefix-icon="tip" suffix-icon="ok"/>\n' +
-          '```',
+        // iconExampleCode: '```html\n' +
+        //   '<h-input placeholder="请输入" prefix-icon="tip"/>\n' +
+        //   '<h-input placeholder="请输入" suffix-icon="ok"/>\n' +
+        //   '<h-input placeholder="请输入" prefix-icon="tip" suffix-icon="ok"/>\n' +
+        //   '```',
         sizeExampleCode: '```html\n' +
           '<h-input size="small" placeholder="请输入"/>\n' +
           '<h-input placeholder="请输入"/>\n' +
@@ -101,8 +101,8 @@
             ['placeholder', '原生属性，占位文本', 'String', '-', '-'],
             ['disabled', '原生属性，是否禁用输入框', 'Boolean', 'false', '-'],
             ['readonly', '原生属性，是否只读', 'Boolean', 'false', '-'],
-            ['prefix-icon', '前缀图标', 'String', '-', '-'],
-            ['suffix-icon', '后缀图标', 'String', '-', '-'],
+            // ['prefix-icon', '前缀图标', 'String', '-', '-'],
+            // ['suffix-icon', '后缀图标', 'String', '-', '-'],
             ['size', '输入框尺寸', 'String', '-', 'large / small']
           ]
         }
