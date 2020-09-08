@@ -13,8 +13,8 @@
           </main>
           <footer>
             <slot name="footer">
-              <Button color="none" @click="cancel">取消</Button>
-              <Button @click="ok">确定</Button>
+              <Button color="none" @click="cancel" class="halo-dialog-cancel">取消</Button>
+              <Button @click="ok" class="halo-dialog-ok">确定</Button>
             </slot>
           </footer>
         </div>
@@ -23,8 +23,15 @@
   </template>
 </template>
 <script lang="ts">
-  import {defineComponent} from 'vue';
+import {defineComponent, ref, SetupContext} from 'vue';
   import Button from './button.vue';
+  interface DialogProps {
+    title?: string,
+    visible?: boolean,
+    closeOnClickOverlay?: boolean,
+    ok?: Function,
+    cancel?: Function
+  }
   const HaloDialog = defineComponent({
     name: 'HaloDialog',
     components: {Button},
@@ -44,7 +51,7 @@
       ok: Function,
       cancel: Function
     },
-    setup (props, context) {
+    setup (props: DialogProps, context: SetupContext) {
       const close = () => {
         context.emit('update:visible', false)
       }
