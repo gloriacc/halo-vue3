@@ -1,11 +1,12 @@
 {
-  "name": "halo-vue3",
-  "version": "0.0.1",
+  "name": "halo-test",
+  "version": "0.0.4",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "test": "jest"
   },
+  "main": "dist/index.umd.js",
   "dependencies": {
     "@types/highlight.js": "^9.12.4",
     "highlight.js": "^10.1.2",
