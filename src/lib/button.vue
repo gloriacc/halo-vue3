@@ -94,7 +94,7 @@ interface ButtonProps {
         })
       }
       return {colorStyle}
-    },
+    }
   })
   export default HaloButton
 </script>

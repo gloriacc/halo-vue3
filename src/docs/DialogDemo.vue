@@ -52,10 +52,7 @@ import Example from "../components/Example.vue";
 import Api from "../components/Api.vue";
 
 import { useDialog } from "../lib/hooks/useDialog";
-// import Button from "../lib/button.vue";
-import {Button} from '../../dist/index.cjs.js'
-
-console.log(Button);
+import Button from "../lib/button.vue";
 
 const DialogDemo = defineComponent({
   components: {
