@@ -5,63 +5,36 @@
     <section>
       <H2>基础标签页</H2>
       <Example :code="regularExampleCode">
-        <h-tabs v-model:selected-tab-name="selectTabNameA">
-          <h-tabs-head>
-            <h-tabs-item name="a">a</h-tabs-item>
-            <h-tabs-item name="b">b</h-tabs-item>
-            <h-tabs-item name="c">c</h-tabs-item>
-          </h-tabs-head>
-          <h-tabs-body>
-            <h-tabs-panel name="a">page a</h-tabs-panel>
-            <h-tabs-panel name="b">page b</h-tabs-panel>
-            <h-tabs-panel name="c">page c</h-tabs-panel>
-          </h-tabs-body>
+        <h-tabs v-model:selected="example1">
+          <h-tab title="tab1">tab1 content<br>tab1 content<br>tab1 content</h-tab>
+          <h-tab title="tab2">tab2 content<br>tab2 content<br>tab2 content</h-tab>
+          <h-tab title="tab3">tab3 content<br>tab3 content<br>tab3 content</h-tab>
         </h-tabs>
       </Example>
     </section>
     <section>
       <H2>方向</H2>
       <Example :code="positionExampleCode">
-        <h-tabs v-model:selected-tab-name="selectTabNameB" :position="tabPositionA">
-          <h-tabs-head>
-            <h-tabs-item name="a">a</h-tabs-item>
-            <h-tabs-item name="b">b</h-tabs-item>
-            <h-tabs-item name="c">c</h-tabs-item>
-          </h-tabs-head>
-          <h-tabs-body>
-            <h-tabs-panel name="a">page a</h-tabs-panel>
-            <h-tabs-panel name="b">page b</h-tabs-panel>
-            <h-tabs-panel name="c">page c</h-tabs-panel>
-          </h-tabs-body>
-        </h-tabs>
-        <h-tabs v-model:selected-tab-name="selectTabNameB" :position="tabPositionB">
-          <h-tabs-head>
-            <h-tabs-item name="a">a</h-tabs-item>
-            <h-tabs-item name="b">b</h-tabs-item>
-            <h-tabs-item name="c">c</h-tabs-item>
-          </h-tabs-head>
-          <h-tabs-body>
-            <h-tabs-panel name="a">page a</h-tabs-panel>
-            <h-tabs-panel name="b">page b</h-tabs-panel>
-            <h-tabs-panel name="c">page c</h-tabs-panel>
-          </h-tabs-body>
+        <ButtonGroup class="position-button-group">
+          <Button @click="onExample2Click('top')">Top</Button>
+          <Button @click="onExample2Click('bottom')">Bottom</Button>
+          <Button @click="onExample2Click('left')">Left</Button>
+          <Button @click="onExample2Click('right')">Right</Button>
+        </ButtonGroup>
+        <h-tabs v-model:selected="example2" :pos="example2Pos">
+          <h-tab title="tab1">tab1 content<br>tab1 content<br>tab1 content</h-tab>
+          <h-tab title="tab2">tab2 content<br>tab2 content<br>tab2 content</h-tab>
+          <h-tab title="tab3">tab3 content<br>tab3 content<br>tab3 content</h-tab>
         </h-tabs>
       </Example>
     </section>
     <section>
       <H2>卡片化</H2>
       <Example :code="cardExampleCode">
-        <h-tabs v-model:selected-tab-name="selectTabNameC" type="card">
-          <h-tabs-head>
-            <h-tabs-item name="a">a</h-tabs-item>
-            <h-tabs-item name="b">b</h-tabs-item>
-            <h-tabs-item name="c">c</h-tabs-item>
-          </h-tabs-head>
-          <h-tabs-body>
-            <h-tabs-panel name="a">page a</h-tabs-panel>
-            <h-tabs-panel name="b">page b</h-tabs-panel>
-            <h-tabs-panel name="c">page c</h-tabs-panel>
-          </h-tabs-body>
+        <h-tabs v-model:selected="example3" type="card">
+          <h-tab title="tab1">tab1 content<br>tab1 content<br>tab1 content</h-tab>
+          <h-tab title="tab2">tab2 content<br>tab2 content<br>tab2 content</h-tab>
+          <h-tab title="tab3">tab3 content<br>tab3 content<br>tab3 content</h-tab>
         </h-tabs>
       </Example>
     </section>
@@ -72,37 +45,46 @@
   </article>
 </template>
 <script lang="ts">
-  import { defineComponent } from 'vue'
+  import { defineComponent, ref } from 'vue'
   import H1 from '../components/H1.vue';
   import H2 from '../components/H2.vue';
   import P from '../components/P.vue';
   import Span from '../components/Span.vue';
   import Example from '../components/Example.vue';
   import Api from '../components/Api.vue';
+  import ButtonGroup from '../lib/button-group.vue';
+  import Button from '../lib/button.vue';
   const TabsDemo = defineComponent({
     components: {
       H1, H2, P, Span, Example, Api,
+      ButtonGroup, Button
+    },
+    setup () {
+      const example1 = ref('tab1')
+      const example2 = ref('tab1')
+      const example2Pos = ref('top')
+      const example3 = ref('tab1')
+      const onExample2Click = (pos: string) => {
+        example2Pos.value = pos
+      }
+      return {
+        example1,
+        example2,
+        example2Pos,
+        onExample2Click,
+        example3,
+      }
     },
     data () {
       return {
-        selectTabNameA: 'a',
-        selectTabNameB: 'b',
-        tabPositionA: 'left',
-        tabPositionB: 'right',
-        selectTabNameC: 'a',
         regularExampleCode: '```html\n' +
-            '<h-tabs v-model:selected-tab-name="selectTabName">\n' +
-            '  <h-tabs-head>\n' +
-            '    <h-tabs-item name="a">a</h-tabs-item>\n' +
-            '    <h-tabs-item name="b">b</h-tabs-item>\n' +
-            '    <h-tabs-item name="c">c</h-tabs-item>\n' +
-            '  </h-tabs-head>\n' +
-            '  <h-tabs-body>\n' +
-            '    <h-tabs-panel name="a">page a</h-tabs-panel>\n' +
-            '    <h-tabs-panel name="b">page b</h-tabs-panel>\n' +
-            '    <h-tabs-panel name="c">page c</h-tabs-panel>\n' +
-            '  </h-tabs-body>\n' +
-            '</h-tabs>\n' +
+            '<template>\n' +
+            '  <h-tabs v-model:selected="tab1">\n' +
+            '    <h-tab title="tab1">tab1 content<br>tab1 content<br>tab1 content</h-tab>\n' +
+            '    <h-tab title="tab2">tab2 content<br>tab2 content<br>tab2 content</h-tab>\n' +
+            '    <h-tab title="tab3">tab3 content<br>tab3 content<br>tab3 content</h-tab>\n' +
+            '  </h-tabs>\n' +
+            '</template>\n' +
             '```',
         positionExampleCode: '',
         cardExampleCode: '',
@@ -113,5 +95,7 @@
   export default TabsDemo
 </script>
 <style lang="scss" scoped>
-
+.position-button-group {
+  margin-bottom: 2em;
+}
 </style>

@@ -13,14 +13,9 @@ import Button from './lib/button.vue'
 import Icon from './lib/icon.vue'
 import ButtonGroup from './lib/button-group.vue'
 import Input from './lib/input.vue'
-import Row from './lib/row.vue'
-import Col from './lib/col.vue'
 import Switch from './lib/switch.vue'
 import Tabs from './lib/tabs.vue'
-import TabsHead from './lib/tabs-head.vue'
-import TabsBody from './lib/tabs-body.vue'
-import TabsItem from './lib/tabs-item.vue'
-import TabsPanel from './lib/tabs-panel.vue'
+import Tab from './lib/tabs-item.vue'
 import Dialog from './lib/dialog.vue'
 
 const app = createApp(App)
@@ -32,14 +27,9 @@ app.component('h-button', Button)
 app.component('h-icon', Icon)
 app.component('h-button-group', ButtonGroup)
 app.component('h-input', Input)
-app.component('h-row', Row)
-app.component('h-col', Col)
 app.component('h-switch', Switch)
 app.component('h-tabs', Tabs)
-app.component('h-tabs-head', TabsHead)
-app.component('h-tabs-body', TabsBody)
-app.component('h-tabs-item', TabsItem)
-app.component('h-tabs-panel', TabsPanel)
+app.component('h-tab', Tab)
 app.component('h-dialog', Dialog)
 
 app.directive('highlight',(el) => {
