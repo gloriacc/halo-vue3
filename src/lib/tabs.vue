@@ -1,7 +1,14 @@
 <template>
   <div class="halo-tabs" :class="{[`halo-tabs-${pos}`]: pos, [`halo-tabs-${type}`]: type}">
     <div class="halo-tabs-head" ref="head">
-      <div v-for="(title,index) in titles" :key="index" :ref="el => { if (title === selected) activeItem = el }" @click="select(title)" class="halo-tabs-head-item" :class="{'halo-tabs-head-item-active': title=== selected}">{{title}}</div>
+      <div v-for="(h,index) in heads"
+           :key="index"
+           :ref="el => { if (h.title === selected) activeItem = el }"
+           @click="select(h)"
+           class="halo-tabs-head-item"
+           :class="{'halo-tabs-head-item-active': h.title === selected, 'halo-tabs-head-item-disabled': h.disabled}">
+        {{h.title}}
+      </div>
       <div v-if="type !== 'card'" class="halo-tabs-head-indicator" ref="indicator"></div>
     </div>
     <div class="halo-tabs-body" ref="body">
@@ -75,18 +82,19 @@ const HaloTabs = defineComponent({
         console.warn('Tabs 子标签必须是 Tab')
       }
     })
-    const titles = defaults.map(tab => {
-      return tab.props && tab.props.title
+    const heads = defaults.map(tab => {
+      return tab.props && {title: tab.props.title, disabled: tab.props.disabled}
     })
-    const select = (title: string) => {
-      context.emit('update:selected', title)
+    const select = (head: {title: string, disabled: boolean}) => {
+      if (head.disabled) return
+      context.emit('update:selected', head.title)
     }
     const current = computed(() => {
       return defaults.find(tab => tab.props && tab.props.title === props.selected)
     })
     return {
       defaults,
-      titles,
+      heads,
       select,
       activeItem,
       indicator,
@@ -136,7 +144,7 @@ $disabled-text-color: grey;
       &-active {
         color: $blue;
       }
-      &.disabled {
+      &-disabled {
         color: $disabled-text-color;
         cursor: not-allowed;
       }

@@ -45,6 +45,16 @@
       </Example>
     </section>
     <section>
+      <H2>不可点击</H2>
+      <Example :code="cardExampleCode">
+        <h-tabs v-model:selected="example4">
+          <h-tab title="tab1">tab1 content<br>tab1 content<br>tab1 content</h-tab>
+          <h-tab title="tab2" disabled="true">tab2 content<br>tab2 content<br>tab2 content</h-tab>
+          <h-tab title="tab3">tab3 content<br>tab3 content<br>tab3 content</h-tab>
+        </h-tabs>
+      </Example>
+    </section>
+    <section>
       <H2>API</H2>
       <Api :content="tabsApi"/>
     </section>
@@ -71,6 +81,7 @@
       const example2Pos = ref('top')
       const example3 = ref('tab1')
       const example3Pos = ref('top')
+      const example4 = ref('tab1')
       const onExample2Click = (pos: string) => {
         example2Pos.value = pos
       }
@@ -84,7 +95,8 @@
         onExample2Click,
         example3,
         example3Pos,
-        onExample3Click
+        onExample3Click,
+        example4
       }
     },
     data () {
