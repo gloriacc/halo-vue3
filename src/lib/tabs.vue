@@ -10,7 +10,7 @@
   </div>
 </template>
 <script lang="ts">
-import {defineComponent, ref, watchEffect, onMounted, onUpdated, computed, watch} from 'vue';
+import {defineComponent, ref, watchEffect, onMounted, computed, watch} from 'vue';
 import Tab from './tabs-item.vue'
 interface TabsProps {
   selected?: string,
@@ -44,7 +44,10 @@ const HaloTabs = defineComponent({
     })
     onMounted(() => {
       watchEffect(() => {
-        if (!activeItem.value || !indicator.value || !head.value || !body.value) return
+        if (!activeItem.value || !head.value || !body.value) return
+        head.value.style.order = pos.value === 'bottom' ? '1' : '0'
+        body.value.style.order = pos.value === 'bottom' ? '0' : '1'
+        if (!indicator.value) return;
         const { width, height, left: leftActive, top: topActive } = activeItem.value.getBoundingClientRect()
         const { width: widthHead, left: leftHead, top: topHead } = head.value.getBoundingClientRect()
         const left = leftActive - leftHead
@@ -59,8 +62,7 @@ const HaloTabs = defineComponent({
         indicator.value.style.height = posHash[pos.value].height + 'px'
         indicator.value.style.left = posHash[pos.value].left + 'px'
         indicator.value.style.top = posHash[pos.value].top + 'px'
-        head.value.style.order = pos.value === 'bottom' ? '1' : '0'
-        body.value.style.order = pos.value === 'bottom' ? '0' : '1'
+
       })
     })
 
@@ -109,7 +111,6 @@ $disabled-text-color: grey;
     justify-content: flex-start;
     position: relative;
     border-bottom: 2px solid $border-color;
-    margin-bottom: 1rem;
     order: 0;
     &-indicator {
       position: absolute;
@@ -144,46 +145,37 @@ $disabled-text-color: grey;
   &-body {
     flex-grow: 1;
     order: 1;
+    padding: 1em;
   }
-  &-left {
+  &-left, &-right {
     display: flex;
-    flex-direction: row;
     > .halo-tabs-head {
       flex-direction: column;
       border-bottom: none;
       border-right: 2px solid $border-color;
-      margin-bottom: 0;
-      margin-right: 1em;
       > .halo-tabs-head-item {
-        justify-content: flex-end;
-      }
-      > .halo-tabs-head-item:first-child, &:last-child {
-        margin: 0 1em;
+        &:first-child, &:last-child {
+          margin: 0 1em;
+        }
       }
     }
   }
+  &-left {
+    flex-direction: row;
+    .halo-tabs-head-item {
+      justify-content: flex-end;
+    }
+  }
   &-right {
-    display: flex;
     flex-direction: row-reverse;
-    > .halo-tabs-head {
-      flex-direction: column;
-      border-bottom: none;
-      border-left: 2px solid $border-color;
-      margin-bottom: 0;
-      margin-left: 1em;
-      > .halo-tabs-head-item {
-        justify-content: flex-start;
-      }
-      > .halo-tabs-head-item:first-child, &:last-child {
-        margin: 0 1em;
-      }
+    .halo-tabs-head-item {
+      justify-content: flex-start;
     }
   }
   &-card {
     border: 1px solid $border-color;
     > .halo-tabs-head {
-      border-bottom: none;
-      margin-bottom: 0;
+      border: none;
       background-color: #eee;
       > .halo-tabs-head-item {
         padding: 0 1em;
@@ -192,13 +184,10 @@ $disabled-text-color: grey;
         &-active {
           background-color: #fff;
         }
+        &:first-child, &:last-child {
+          margin: 0
+        }
       }
-      > .halo-tabs-head-indicator {
-        background-color: #fff;
-      }
-    }
-    > .halo-tabs-body {
-      padding: 1em;
     }
   }
 }
