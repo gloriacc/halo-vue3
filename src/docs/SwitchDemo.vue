@@ -70,7 +70,7 @@
         regularExampleCode: '```html\n' +
           '<h-switch/>\n' +
           '<h-switch v-model:value="isChecked"/>\n' +
-          '<script>\n' +
+          '<scr' + 'ipt>\n' +
           '  export default {\n' +
           '    data() {\n' +
           '      return {\n' +
@@ -78,7 +78,7 @@
           '      }\n' +
           '    }\n' +
           '  };\n' +
-          '<\/script>\n' +
+          '<\/scr' + 'ipt>\n' +
           '```',
         colorExampleCode: '```html\n' +
           '<h-switch uncheck-color="#e8ef44"/>\n' +
