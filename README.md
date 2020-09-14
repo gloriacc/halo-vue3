@@ -5,9 +5,9 @@ todo
 ## Quick Start
 ``` javascript
 import { createApp } from 'vue'
-import Halo from 'halo-ui'
-
 const app = createApp({})
+
+import Halo from 'halo-ui'
 app.use(Halo)
 
 // or
@@ -15,7 +15,6 @@ import {
   Button
   // ...
 } from 'halo-ui'
-
 app.component(Button.name, Button)
 ```
 ## LICENSE
