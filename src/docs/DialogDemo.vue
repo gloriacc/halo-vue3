@@ -230,7 +230,7 @@ const DialogDemo = defineComponent({
         body: [
           ['v-model:visible', '绑定 Dialog 的显示状态', 'Boolean', 'false', 'true | false'],
           ['title', '设置标题文字', 'String', '提示', '-'],
-          ['onClickOverlay', '点击遮罩层是是否关闭 Dialog', 'Boolean', 'true', 'true | false'],
+          ['closeOnClickOverlay', '点击遮罩层是是否关闭 Dialog', 'Boolean', 'true', 'true | false'],
         ]
       },
       dialogSlotApi: {

@@ -7,6 +7,7 @@ interface DialogOptions {
   footer?: RendererElement,
   ok?: Function,
   cancel?: Function,
+  closeOnClickOverlay?: Boolean
 }
 
 interface DialogChildren {
@@ -20,7 +21,7 @@ const useDialog = () => {
   document.body.appendChild(div)
   let dialog: App<Element>
   const showDialog = (options: DialogOptions) => {
-    const {title, header, content, footer, ok, cancel} = options
+    const {title, header, content, footer, ok, cancel, closeOnClickOverlay} = options
     const children: DialogChildren = {
       default: () => content
     }
@@ -32,6 +33,7 @@ const useDialog = () => {
     }
     dialog = createApp({
       render() {
+        // @ts-ignore
         return h(Dialog, {
           visible: true,
           'onUpdate:visible': (newVisible: any) => {
@@ -43,6 +45,7 @@ const useDialog = () => {
           title,
           ok,
           cancel,
+          closeOnClickOverlay,
         }, {...children})
       }
     })
