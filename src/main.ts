@@ -23,6 +23,7 @@ const app = createApp(App)
 app.use(store)
 app.use(router)
 
+// @ts-ignore
 app.component('h-button', Button)
 app.component('h-icon', Icon)
 app.component('h-button-group', ButtonGroup)
