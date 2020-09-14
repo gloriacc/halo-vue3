@@ -16,6 +16,8 @@
       <P>可以给按钮设置颜色。</P>
       <Example :code="colorExampleCode">
         <h-button color="#df546c">Button</h-button>
+        <h-button color="lightgreen">Button</h-button>
+        <h-button color="rgb(255, 215, 0)">Button</h-button>
         <h-button color="none">Button</h-button>
         <h-button color="#df546c" kind="link">Link</h-button>
         <h-button color="#df546c" kind="text">Text</h-button>
@@ -119,7 +121,7 @@
       </Example>
     </section>
     <section class="buttonApi">
-      <H2>API</H2>
+      <H2>属性</H2>
       <Api :content="buttonApi"></Api>
     </section>
   </article>
@@ -221,15 +223,15 @@
         buttonApi: {
           head: ['属性', '说明', '类型', '默认值', '可选值'],
           body: [
-            ['kind', '按钮类型', 'String', '-', 'link / text'],
-            ['color', '自定义按钮颜色', 'String', '-', '十六进制颜色值'],
-            ['shape', '按钮形状', 'String', '-', 'round / circle'],
+            ['kind', '按钮类型', 'String', '-', 'link | text'],
+            ['color', '自定义按钮颜色', 'String', '-', '十六色 | rgb | 英文名称'],
+            ['shape', '按钮形状', 'String', '-', 'round | circle'],
             ['ghost', '是否为幽灵按钮', 'Boolean', 'false', '-'],
             // ['icon', '图标类名', 'String', '-', '-'],
             // ['icon-position', '图标位置', 'String', 'left', 'right'],
             ['disabled', '是否禁用按钮', 'Boolean', 'false', '-'],
             // ['loading', '是否处于加载中状态', 'Boolean', 'false', '-'],
-            ['size', '按钮尺寸', 'String', '-', 'large / small']
+            ['size', '按钮尺寸', 'String', '-', 'large | small']
           ]
         }
       }

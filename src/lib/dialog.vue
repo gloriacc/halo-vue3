@@ -23,7 +23,7 @@
   </template>
 </template>
 <script lang="ts">
-import {defineComponent, SetupContext} from 'vue';
+import {defineComponent} from 'vue';
   import Button from './button.vue';
   interface DialogProps {
     title?: string,
@@ -51,7 +51,7 @@ import {defineComponent, SetupContext} from 'vue';
       ok: Function,
       cancel: Function
     },
-    setup (props: DialogProps, context: SetupContext) {
+    setup (props: DialogProps, context) {
       const close = () => {
         context.emit('update:visible', false)
       }
