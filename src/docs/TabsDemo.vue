@@ -4,6 +4,7 @@
     <P>应用于两种对立状态的切换。</P>
     <section>
       <H2>基础标签页</H2>
+      <P>在 <Span>Tabs</Span> 内加入子组件 <Span>Tab</Span>，设置标签 <Span>title</Span> 和对应的内容，并绑定已选页的 <Span>title</Span> 。</P>
       <Example :code="regularExampleCode">
         <h-tabs v-model:selected="example1">
           <h-tab title="tab1">tab1 content<br>tab1 content<br>tab1 content</h-tab>
@@ -14,6 +15,7 @@
     </section>
     <section>
       <H2>不同方向</H2>
+      <P>标签页可以设置 <Span>top</Span> 、 <Span>bottom</Span> 、<Span>left</Span> 、<Span>right</Span> 四种方向，默认是 <Span>top</Span> 。</P>
       <Example :code="posExampleCode">
         <ButtonGroup class="position-button-group">
           <Button @click="onExample2Click('top')">Top</Button>
@@ -30,6 +32,7 @@
     </section>
     <section>
       <H2>卡片样式</H2>
+      <P>标签页呈现卡片的样式。</P>
       <Example :code="cardExampleCode">
         <h-tabs v-model:selected="example3" type="card">
           <h-tab title="tab1">tab1 content<br>tab1 content<br>tab1 content</h-tab>
@@ -40,6 +43,7 @@
     </section>
     <section>
       <H2>不可点击</H2>
+      <P>可将某个标签设置为不可点击。</P>
       <Example :code="disabledExampleCode">
         <h-tabs v-model:selected="example4">
           <h-tab title="tab1">tab1 content<br>tab1 content<br>tab1 content</h-tab>
@@ -49,7 +53,7 @@
       </Example>
     </section>
     <section>
-      <H2>API</H2>
+      <H2>属性</H2>
       <Api :content="tabsApi"/>
     </section>
   </article>
