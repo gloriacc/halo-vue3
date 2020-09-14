@@ -11,6 +11,7 @@
     </section>
     <section>
       <H2>自定义颜色</H2>
+      <P>可设置背景颜色。</P>
       <Example :code="colorExampleCode">
         <h-switch uncheck-color="#e8ef44"/>
         <h-switch uncheck-color="#eaaf49" checked-color="#7cc96a"/>
@@ -43,7 +44,7 @@
       </Example>
     </section>
     <section class="switchApi">
-      <H2>API</H2>
+      <H2>属性</H2>
       <Api :content="switchApi"/>
     </section>
   </article>
@@ -101,13 +102,13 @@
         switchApi: {
           head: ['属性', '说明', '类型', '默认值', '可选值'],
           body: [
-            ['v-model:value', '绑定开关的状态值', 'Boolean', '-', '-'],
-            ['disabled', '是否禁用开发', 'Boolean', 'false', '-'],
-            ['uncheck-color', '开关开启时的背景颜色', 'String', '-', '十六进制值'],
-            ['checked-color', '开关关闭时的背景颜色', 'String', '-', '十六进制值'],
+            ['v-model:value', '绑定开关的状态值', 'Boolean', '-', 'true | false'],
+            ['disabled', '是否禁用开发', 'Boolean', 'false', 'true | false'],
+            ['uncheck-color', '开关开启时的背景颜色', 'String', '-', '十六色 | rgb | 英文名称'],
+            ['checked-color', '开关关闭时的背景颜色', 'String', '-', '十六色 | rgb | 英文名称'],
             ['uncheck-content', '开关开启时的文字描述', 'String', '-', '-'],
             ['checked-content', '开关关闭时的文字描述', 'String', '-', '-'],
-            ['size', '开关尺寸', 'String', '-', 'large / small']
+            ['size', '开关尺寸', 'String', '-', 'large | small']
           ]
         }
       }
