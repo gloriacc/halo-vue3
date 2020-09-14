@@ -6,7 +6,7 @@
     "build": "vite build",
     "test": "jest"
   },
-  "main": "dist/index.umd.js",
+  "homepage": "https://gloriacc.github.io/halo-vue3/",
   "dependencies": {
     "@types/highlight.js": "^9.12.4",
     "highlight.js": "^10.1.2",
