@@ -4,6 +4,7 @@
     <P>基本表单组件。</P>
     <section>
       <H2>基础用法</H2>
+      <P><Span>input</Span> 的原生属性都可使用。</P>
       <Example :code="regularExampleCode">
         <div>
           <h-input placeholder="请输入" v-model:value="value1"/>
@@ -33,6 +34,7 @@
     </section>
     <section>
       <H2>文本域</H2>
+      <P><Span>textarea</Span> 的原生属性都可使用。</P>
       <Example :code="textareaExampleCode">
         <div>
           <h-input type="textarea" placeholder="请输入"/>
@@ -42,7 +44,7 @@
       </Example>
     </section>
     <section class="inputApi">
-      <H2>API</H2>
+      <H2>属性</H2>
       <Api :content="inputApi"/>
     </section>
   </article>
@@ -68,7 +70,7 @@
       return {
         regularExampleCode: '```html\n' +
           '<h-input placeholder="请输入" v-model:value="value"/>\n' +
-          '<script>\n' +
+          '<scr' + 'ipt>\n' +
           '  export default {\n' +
           '    data() {\n' +
           '      return {\n' +
@@ -76,7 +78,7 @@
           '      }\n' +
           '    }\n' +
           '  };\n' +
-          '<\/script>\n' +
+          '<\/scr' + 'ipt>\n' +
           '```',
         // iconExampleCode: '```html\n' +
         //   '<h-input placeholder="请输入" prefix-icon="tip"/>\n' +
@@ -98,9 +100,9 @@
           body: [
             ['v-model:value', '绑定输入框的值', 'String', '-', '-'],
             ['type', '输入框类型', 'String', 'text', 'textarea / 其他原生的 type 属性值'],
-            ['placeholder', '原生属性，占位文本', 'String', '-', '-'],
-            ['disabled', '原生属性，是否禁用输入框', 'Boolean', 'false', '-'],
-            ['readonly', '原生属性，是否只读', 'Boolean', 'false', '-'],
+            // ['placeholder', '原生属性，占位文本', 'String', '-', '-'],
+            // ['disabled', '原生属性，是否禁用输入框', 'Boolean', 'false', '-'],
+            // ['readonly', '原生属性，是否只读', 'Boolean', 'false', '-'],
             // ['prefix-icon', '前缀图标', 'String', '-', '-'],
             // ['suffix-icon', '后缀图标', 'String', '-', '-'],
             ['size', '输入框尺寸', 'String', '-', 'large / small']
