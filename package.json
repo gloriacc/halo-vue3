@@ -6,6 +6,7 @@
     "build": "vite build",
     "test": "jest"
   },
+  "main": "docs/index.html",
   "homepage": "https://gloriacc.github.io/halo-vue3/",
   "dependencies": {
     "@types/highlight.js": "^9.12.4",

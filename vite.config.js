@@ -5,7 +5,7 @@
 //       input: 'index.js',
 //     },
 //     rollupOutputOptions: {
-//       file: 'dist/index.es.js',
+//       file: 'docs/index.es.js',
 //       format: 'es',
 //     },
 //     cssCodeSplit: false,
