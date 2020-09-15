@@ -1282,7 +1282,7 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@26.x", "@types/jest@^26.0.13":
+"@types/jest@26.x":
   version "26.0.13"
   resolved "https://registry.npm.taobao.org/@types/jest/download/@types/jest-26.0.13.tgz?cache=0&sync_timestamp=1599059500568&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fjest%2Fdownload%2F%40types%2Fjest-26.0.13.tgz#5a7b9d5312f5dd521a38329c38ee9d3802a0b85e"
   integrity sha1-WnudUxL13VIaODKcOO6dOAKguF4=
@@ -1342,9 +1342,9 @@
   integrity sha1-5IbQ2XOW15vu3QpuM/RTT/a0lz4=
 
 "@types/prettier@^2.0.0":
-  version "2.1.0"
-  resolved "https://registry.npm.taobao.org/@types/prettier/download/@types/prettier-2.1.0.tgz#5f96562c1075ee715a5b138f0b7f591c1f40f6b8"
-  integrity sha1-X5ZWLBB17nFaWxOPC39ZHB9A9rg=
+  version "2.1.1"
+  resolved "https://registry.npm.taobao.org/@types/prettier/download/@types/prettier-2.1.1.tgz?cache=0&sync_timestamp=1600119657716&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fprettier%2Fdownload%2F%40types%2Fprettier-2.1.1.tgz#be148756d5480a84cde100324c03a86ae5739fb5"
+  integrity sha1-vhSHVtVICoTN4QAyTAOoauVzn7U=
 
 "@types/qs@*":
   version "6.9.4"
@@ -1550,9 +1550,9 @@
   integrity sha1-bc9KmOCzeZGMpZAkXtjiSeo2reQ=
 
 abab@^2.0.3:
-  version "2.0.4"
-  resolved "https://registry.npm.taobao.org/abab/download/abab-2.0.4.tgz#6dfa57b417ca06d21b2478f0e638302f99c2405c"
-  integrity sha1-bfpXtBfKBtIbJHjw5jgwL5nCQFw=
+  version "2.0.5"
+  resolved "https://registry.npm.taobao.org/abab/download/abab-2.0.5.tgz?cache=0&sync_timestamp=1599849993777&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fabab%2Fdownload%2Fabab-2.0.5.tgz#c0b678fb32d60fc1219c784d6a826fe385aeb79a"
+  integrity sha1-wLZ4+zLWD8EhnHhNaoJv44Wut5o=
 
 accepts@^1.3.5:
   version "1.3.7"
@@ -2126,13 +2126,6 @@ commander@^2.20.0:
   version "2.20.3"
   resolved "https://registry.npm.taobao.org/commander/download/commander-2.20.3.tgz?cache=0&sync_timestamp=1598576153505&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha1-/UhehMA+tIgcIHIrpIA16FMa6zM=
-
-commander@~2.9.0:
-  version "2.9.0"
-  resolved "https://registry.npm.taobao.org/commander/download/commander-2.9.0.tgz?cache=0&sync_timestamp=1598576153505&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-2.9.0.tgz#9c99094176e12240cb22d6c5146098400fe0f7d4"
-  integrity sha1-nJkJQXbhIkDLItbFFGCYQA/g99Q=
-  dependencies:
-    graceful-readlink ">= 1.0.0"
 
 commondir@^1.0.1:
   version "1.0.1"
@@ -2931,11 +2924,6 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.4:
   version "4.2.4"
   resolved "https://registry.npm.taobao.org/graceful-fs/download/graceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"
   integrity sha1-Ila94U02MpWMRl68ltxGfKB6Kfs=
-
-"graceful-readlink@>= 1.0.0":
-  version "1.0.1"
-  resolved "https://registry.npm.taobao.org/graceful-readlink/download/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
-  integrity sha1-TK+tdrxi8C+gObL5Tpo906ORpyU=
 
 growly@^1.3.0:
   version "1.3.0"
@@ -3776,7 +3764,7 @@ jest-serializer@^26.3.0:
 
 jest-snapshot@^26.4.2:
   version "26.4.2"
-  resolved "https://registry.npm.taobao.org/jest-snapshot/download/jest-snapshot-26.4.2.tgz#87d3ac2f2bd87ea8003602fbebd8fcb9e94104f6"
+  resolved "https://registry.npm.taobao.org/jest-snapshot/download/jest-snapshot-26.4.2.tgz?cache=0&sync_timestamp=1598096634047&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjest-snapshot%2Fdownload%2Fjest-snapshot-26.4.2.tgz#87d3ac2f2bd87ea8003602fbebd8fcb9e94104f6"
   integrity sha1-h9OsLyvYfqgANgL769j8uelBBPY=
   dependencies:
     "@babel/types" "^7.0.0"
@@ -3849,7 +3837,7 @@ jest-worker@^26.3.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jest@^26.4.2:
+jest@26.x:
   version "26.4.2"
   resolved "https://registry.npm.taobao.org/jest/download/jest-26.4.2.tgz#7e8bfb348ec33f5459adeaffc1a25d5752d9d312"
   integrity sha1-fov7NI7DP1RZrer/waJdV1LZ0xI=
@@ -5137,14 +5125,7 @@ rollup-plugin-terser@^5.3.0:
     serialize-javascript "^2.1.2"
     terser "^4.6.2"
 
-rollup-plugin-uglify-es@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.npm.taobao.org/rollup-plugin-uglify-es/download/rollup-plugin-uglify-es-0.0.1.tgz#e45644f2b685a59abdb9363407207a03a7b5a9b7"
-  integrity sha1-5FZE8raFpZq9uTY0ByB6A6e1qbc=
-  dependencies:
-    uglify-es "3.0.3"
-
-rollup-plugin-vue@6.0.0-beta.10, rollup-plugin-vue@^6.0.0-beta.10:
+rollup-plugin-vue@^6.0.0-beta.10:
   version "6.0.0-beta.10"
   resolved "https://registry.npm.taobao.org/rollup-plugin-vue/download/rollup-plugin-vue-6.0.0-beta.10.tgz#66d9b9a8dd2d085267d1cc398ea0113360879ac1"
   integrity sha1-Ztm5qN0tCFJn0cw5jqARM2CHmsE=
@@ -5393,7 +5374,7 @@ source-map-url@^0.4.0:
   resolved "https://registry.npm.taobao.org/source-map-url/download/source-map-url-0.4.0.tgz#3e935d7ddd73631b97659956d55128e87b5084a3"
   integrity sha1-PpNdfd1zYxuXZZlW1VEo6HtQhKM=
 
-source-map@^0.5.0, source-map@^0.5.6, source-map@~0.5.1:
+source-map@^0.5.0, source-map@^0.5.6:
   version "0.5.7"
   resolved "https://registry.npm.taobao.org/source-map/download/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
@@ -5805,21 +5786,6 @@ typescript@^4.0.2:
   resolved "https://registry.npm.taobao.org/typescript/download/typescript-4.0.2.tgz?cache=0&sync_timestamp=1599288943188&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftypescript%2Fdownload%2Ftypescript-4.0.2.tgz#7ea7c88777c723c681e33bf7988be5d008d05ac2"
   integrity sha1-fqfIh3fHI8aB4zv3mIvl0AjQWsI=
 
-uglify-es@3.0.3:
-  version "3.0.3"
-  resolved "https://registry.npm.taobao.org/uglify-es/download/uglify-es-3.0.3.tgz#63cc84aa9468b34973a4887787c64c01a8a87576"
-  integrity sha1-Y8yEqpRos0lzpIh3h8ZMAaiodXY=
-  dependencies:
-    commander "~2.9.0"
-    source-map "~0.5.1"
-  optionalDependencies:
-    uglify-to-browserify "~1.0.0"
-
-uglify-to-browserify@~1.0.0:
-  version "1.0.2"
-  resolved "https://registry.npm.taobao.org/uglify-to-browserify/download/uglify-to-browserify-1.0.2.tgz#6e0924d6bda6b5afe349e39a6d632850a0f882b7"
-  integrity sha1-bgkk1r2mta/jSeOabWMoUKD4grc=
-
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npm.taobao.org/unicode-canonical-property-names-ecmascript/download/unicode-canonical-property-names-ecmascript-1.0.4.tgz#2619800c4c825800efdd8343af7dd9933cbe2818"
@@ -6080,9 +6046,9 @@ whatwg-mimetype@^2.3.0:
   integrity sha1-PUseAxLSB5h5+Cav8Y2+7KWWD78=
 
 whatwg-url@^8.0.0:
-  version "8.2.1"
-  resolved "https://registry.npm.taobao.org/whatwg-url/download/whatwg-url-8.2.1.tgz?cache=0&sync_timestamp=1598369473635&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fwhatwg-url%2Fdownload%2Fwhatwg-url-8.2.1.tgz#ed73417230784b281fb2a32c3c501738b46167c3"
-  integrity sha1-7XNBcjB4SygfsqMsPFAXOLRhZ8M=
+  version "8.2.2"
+  resolved "https://registry.npm.taobao.org/whatwg-url/download/whatwg-url-8.2.2.tgz?cache=0&sync_timestamp=1599418911601&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fwhatwg-url%2Fdownload%2Fwhatwg-url-8.2.2.tgz#85e7f9795108b53d554cec640b2e8aee2a0d4bfd"
+  integrity sha1-hef5eVEItT1VTOxkCy6K7ioNS/0=
   dependencies:
     lodash.sortby "^4.7.0"
     tr46 "^2.0.2"

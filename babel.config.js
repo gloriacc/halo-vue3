@@ -3,10 +3,10 @@ module.exports = {
     ['@babel/preset-env',
       {
         targets: {
-          node: 'current',
-          modules: false
+          node: 'current'
         }
       }
     ]
-  ]
+  ],
+  // plugins: ["transform-es2015-modules-commonjs"]
 }
