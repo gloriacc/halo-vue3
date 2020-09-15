@@ -1,4 +1,7 @@
-# Halo UI
+# Halo UI  
+![Travis (.org) branch](https://img.shields.io/travis/gloriacc/halo-vue3/master)
+![GitHub](https://img.shields.io/github/license/gloriacc/halo-vue3)
+
 a component framework for Vue.js 3
 ## Install
 todo
