@@ -11,7 +11,7 @@
   "dependencies": {
     "@types/highlight.js": "^9.12.4",
     "highlight.js": "^10.1.2",
-    "marked": "^1.1.1",
+    "marked": "^2.0.0",
     "vue": "3.0.0-rc.7",
     "vue-router": "4.0.0-beta.7",
     "vuex": "4.0.0-beta.4"
